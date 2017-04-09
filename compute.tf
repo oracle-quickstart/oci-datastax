@@ -7,7 +7,7 @@ resource "baremetal_core_instance" "DSE_OPSC" {
     subnet_id = "${baremetal_core_subnet.DataStax_PublicSubnet_AD.0.id}"
     metadata {
         ssh_authorized_keys = "${var.ssh_public_key}"
-        user_data = "${base64encode(file(var.DSE_OPSC_BootStrap))}"
+        user_data = "${base64encode(file(var.DSE_BootStrap))}"
     }
 }
 
