@@ -25,8 +25,12 @@ variable "InstanceOSVersion" {
     default = "7.3"
 }
 
+#variable "DSE_Shape" {
+#    default = "BM.HighIO1.36"
+#}
+
 variable "DSE_Shape" {
-    default = "BM.HighIO1.36"
+    default = "VM.Standard1.4"
 }
 
 variable "VPC-CIDR" {

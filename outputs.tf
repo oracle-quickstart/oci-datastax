@@ -13,7 +13,7 @@ value = "${format("%s\n%s %s\n%s",
         )}"
 }
 
-output "DSE_ONLY_Bootstrap" {
+output "DSE_Bootstrap" {
 value = "${format("%s\n%s %s %s", 
            file(var.DSE_BootStrap), 
            "./node.sh",
