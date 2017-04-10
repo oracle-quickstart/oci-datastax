@@ -112,7 +112,6 @@ resource "baremetal_core_subnet" "DataStax_PublicSubnet_AD" {
   vcn_id = "${baremetal_core_virtual_network.DataStax_VCN.id}"
   route_table_id = "${baremetal_core_route_table.DataStax_RT.id}"
   security_list_ids = ["${baremetal_core_security_list.DataStax_PublicSubnet.id}"]
-
   count = 3
 }
 

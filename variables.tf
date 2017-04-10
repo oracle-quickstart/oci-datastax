@@ -37,10 +37,9 @@ variable "VPC-CIDR" {
 default = "0.0.0.0/0"
 }
 
-
-variable "DSE_OPSC_BootStrap" {
-    default = "./userdata/node_opsc_userdata.sh"
-}
+#variable "DSE_OPSC_BootStrap" {
+#    default = "./userdata/node_opsc_userdata.sh"
+#}
 
 variable "OPSC_BootStrap" {
     default = "./userdata/opscenter_userdata.sh"
@@ -53,4 +52,8 @@ variable "DSE_BootStrap" {
 variable "GML_Test" {
     default = "Hello"
 }
+
+variable "Num_DSE_Nodes_In_Each_AD" {}
+
+
 

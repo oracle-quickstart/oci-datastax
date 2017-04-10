@@ -11,7 +11,4 @@
 export TF_VAR_ssh_public_key=$(cat /Users/gilbertlau/.ssh/bmc_rsa.pub)
 export TF_VAR_ssh_private_key=$(cat /Users/gilbertlau/.ssh/bmc_rsa)
 
-## Specific to this example
-### Choose a subnet that exists in the AD and compartment you are launching the instance in
-#export TF_VAR_SubnetOCID="<subnet>"
 
