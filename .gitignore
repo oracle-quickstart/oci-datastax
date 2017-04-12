@@ -1,9 +1,0 @@
-# Compiled files
-*.tfstate
-*.tfstate.backup
-
-# Module directory
-.terraform/
-
-# Log files
-crash.log
