@@ -25,21 +25,14 @@ variable "InstanceOSVersion" {
     default = "7.3"
 }
 
-#variable "DSE_Shape" {
-#    default = "BM.HighIO1.36"
-#}
-
 variable "DSE_Shape" {
-    default = "VM.Standard1.4"
+    default = "BM.HighIO1.36"
 }
 
-variable "VPC-CIDR" {
-default = "0.0.0.0/0"
-}
-
-#variable "DSE_OPSC_BootStrap" {
-#    default = "./userdata/node_opsc_userdata.sh"
+#variable "DSE_Shape" {
+#    default = "VM.Standard1.4"
 #}
+
 
 variable "OPSC_BootStrap" {
     default = "./userdata/opscenter_userdata.sh"
@@ -49,10 +42,7 @@ variable "DSE_BootStrap" {
     default = "./userdata/node_userdata.sh"
 }
 
-variable "GML_Test" {
-    default = "Hello"
-}
-
+# Collect #nodes in each AD from a user
 variable "Num_DSE_Nodes_In_Each_AD" {}
 
 
