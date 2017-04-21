@@ -1,14 +1,19 @@
+# Network resources
+
 resource "baremetal_core_virtual_network" "DataStax_VCN" {
   cidr_block = "10.0.0.0/16"
   compartment_id = "${var.compartment_ocid}"
  	 display_name = "DataStax_VCN"
 }
 
+
 resource "baremetal_core_internet_gateway" "DataStax_IG" {
+    depends_on = ["baremetal_core_virtual_network.DataStax_VCN"]
     compartment_id = "${var.compartment_ocid}"
     display_name = "DataStax_IG"
     vcn_id = "${baremetal_core_virtual_network.DataStax_VCN.id}"
 }
+
 
 resource "baremetal_core_route_table" "DataStax_RT" {
     compartment_id = "${var.compartment_ocid}"
@@ -19,6 +24,7 @@ resource "baremetal_core_route_table" "DataStax_RT" {
         network_entity_id = "${baremetal_core_internet_gateway.DataStax_IG.id}"
     }
 }
+
 
 resource "baremetal_core_security_list" "DataStax_PublicSubnet" {
     compartment_id = "${var.compartment_ocid}"
