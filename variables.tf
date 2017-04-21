@@ -19,11 +19,16 @@ variable "InstanceOSVersion" {
 }
 
 variable "DSE_Shape" {
-    default = "BM.HighIO1.36"
+#    default = "BM.HighIO1.36"
+     default = "VM.Standard1.4"
 }
 
 variable "OPSC_Shape" {
     default = "VM.Standard1.4"
+}
+
+variable "2TB" {
+    default = "2097152"
 }
 
 variable "host_user_name" {

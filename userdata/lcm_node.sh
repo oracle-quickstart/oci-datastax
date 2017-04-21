@@ -38,7 +38,8 @@ chmod -R 777 /mnt/data1
 
 ##### Install DSE the LCM way 
 yum -y install unzip wget
-wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
+#wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
+wget http://mirror.centos.org/centos/7/extras/x86_64/Packages/epel-release-7-9.noarch.rpm
 rpm -ivh epel-release-7-9.noarch.rpm
 yum -y install python-pip
 pip install requests
