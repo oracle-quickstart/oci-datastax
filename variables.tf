@@ -19,8 +19,8 @@ variable "InstanceOSVersion" {
 }
 
 variable "DSE_Shape" {
-#    default = "BM.HighIO1.36"
-     default = "VM.Standard1.4"
+    default = "BM.HighIO1.36"
+#   default = "VM.Standard1.4"
 }
 
 variable "OPSC_Shape" {
