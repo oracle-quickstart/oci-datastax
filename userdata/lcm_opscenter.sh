@@ -35,9 +35,9 @@ cd install-datastax-redhat-master/bin/
 
 ## Set up cluster in OpsCenter the LCM way
 cd ~opc
-wget https://github.com/DSPN/install-datastax-ubuntu/archive/5.5.0.zip
-unzip 5.5.0.zip
-cd install-datastax-ubuntu-5.5.0/bin/lcm/
+wget https://github.com/DSPN/install-datastax-ubuntu/archive/5.5.3.zip
+unzip 5.5.3.zip
+cd install-datastax-ubuntu-5.5.3/bin/lcm/
 
 # Retrieve OpsCenter's public IP address
 private_ip=`echo $(hostname -I)`
