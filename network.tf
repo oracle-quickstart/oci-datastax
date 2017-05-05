@@ -101,6 +101,78 @@ resource "baremetal_core_security_list" "DataStax_PublicSubnet" {
     },
         {
         tcp_options {
+            "max" = 8983
+            "min" = 8983
+        }
+        protocol = "6"
+        source = "0.0.0.0/0"
+    },
+        {
+        tcp_options {
+            "max" = 8609
+            "min" = 8609
+        }
+        protocol = "6"
+        source = "0.0.0.0/0"
+    },
+        {
+        tcp_options {
+            "max" = 7077
+            "min" = 7077
+        }
+        protocol = "6"
+        source = "0.0.0.0/0"
+    },
+        {
+        tcp_options {
+            "max" = 7081
+            "min" = 7080
+        }
+        protocol = "6"
+        source = "0.0.0.0/0"
+    },
+        {
+        tcp_options {
+            "max" = 8182
+            "min" = 8182
+        }
+        protocol = "6"
+        source = "0.0.0.0/0"
+    },
+        {
+        tcp_options {
+            "max" = 5599
+            "min" = 5598
+        }
+        protocol = "6"
+        source = "0.0.0.0/0"
+    },
+        {
+        tcp_options {
+            "max" = 4040
+            "min" = 4040
+        }
+        protocol = "6"
+        source = "0.0.0.0/0"
+    },
+        {
+        tcp_options {
+            "max" = 8090
+            "min" = 8090
+        }
+        protocol = "6"
+        source = "0.0.0.0/0"
+    },
+        {
+        tcp_options {
+            "max" = 9999
+            "min" = 9999
+        }
+        protocol = "6"
+        source = "0.0.0.0/0"
+    },
+        {
+        tcp_options {
             "max" = 61621
             "min" = 61620
         }
