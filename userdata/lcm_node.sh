@@ -23,11 +23,11 @@ yum -y update
 yum -y install lvm2 dmsetup mdadm reiserfsprogs xfsprogs
 
 # Create disk partitions for LVM:
-pvcreate /dev/nvme0n1 /dev/nvme1n1 /dev/nvme2n1 /dev/nvme3n1
+pvcreate /dev/nvme0n1 /dev/nvme1n1 
 
 # Create volume group upon disk partitions:
-vgcreate vg-nvme /dev/nvme0n1 /dev/nvme1n1 /dev/nvme2n1 /dev/nvme3n1
-lvcreate --name lv --size 11.6T vg-nvme
+vgcreate vg-nvme /dev/nvme0n1 /dev/nvme1n1 
+lvcreate --name lv --size 5.8T vg-nvme
 mkfs.ext4 /dev/vg-nvme/lv
 mkdir /mnt/data1
 mount /dev/vg-nvme/lv /mnt/data1
