@@ -20,6 +20,9 @@ Before you "terraform plan", "terraform apply", or "terraform destroy" the confi
 #### `compute.tf`
 Defines the compute resource
 
+#### `network.tf`
+Defines the network resource
+
 #### `remote-exec.tf`
 Uses a `null_resource`, `remote-exec` and `depends_on` to execute a command on the instance. [More information on the remote-exec provisioner.](https://www.terraform.io/docs/provisioners/remote-exec.html) 
 
