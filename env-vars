@@ -9,6 +9,7 @@
 
 ### BMC Region: ex, us-phoenix-1
 #export TF_VAR_region="us-phoenix-1"
+export TF_VAR_region="us-ashburn-1"
 
 ### Public/private keys used on the instance
 export TF_VAR_ssh_public_key=$(cat /Users/gilbertlau/.ssh/bmc_rsa.pub)
