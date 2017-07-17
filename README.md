@@ -22,6 +22,7 @@ It creates a virtual cloud network with a route table, Internet Gateway, Securit
 ![](./img/opsc_dashboard.png)
 * You can also SSH into the any of the DSE nodes using similar command: `ssh -i <path to your SSH private key> opc@<IP address of a DSE node>`.  You can locate the IP address of your DSE node in Oracle BMC Console's Compute>>Instances>>Instance Details screen.
 ![](./img/dse_ip.png)
+* Similarly, you can cqlsh into your DSE nodes using `cqlsh <IP address of a DSE node> -u cassandra -p <Cassandra_DB_User_Password>`.
 * When you no longer need the DSE cluster, you can run `terraform destroy` and follow on-screen instructions to de-provision your DSE cluster.
 
 ### Files in the configuration
