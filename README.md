@@ -1,5 +1,5 @@
 # oracle-bmc-terraform-dse
-Oracle Bare Metal Cloud Services Terraform-based provisioning for DataStax Enterprise
+Oracle Bare Metal Cloud Services Terraform-based provisioning for DataStax Enterprise (DSE)
 
 It creates a virtual cloud network with a route table, Internet Gateway, Security Lists, 3 subnets on different availability domains (ADs) for the DataStax Enterprise cluster nodes and OpsCenter. 
 
@@ -14,6 +14,14 @@ It creates a virtual cloud network with a route table, Internet Gateway, Securit
   * `$ . env-vars`
 * Update `variables.tf` with your instance options.
 * Update \<ssh_private_key_path\> field in `remote-exec.tf` with the absolute path of your SSH private key. For example, `/Users/gilbertlau/.ssh/bmc_rsa`
+* Run `terraform plan` and follow on-screen instructions to create and review your execution plan.
+* If everything looks good, run `terraform apply` and follow on-screen instructions to provision your DSE cluster.
+* If it runs successfully, you will see the following output from the command line.
+![](./img/deploy.png)
+* The time taken to provision a 3-node DSE cluster is between 10 and 15 minutes long. You can point your browser at http://<OpsCenter_URL> to access DataStax Enterprise OpsCenter to start managing your DSE cluster.
+![](./img/deploy.png)
+* You can also ssh into the any of the DSE nodes using similar command: `ssh -i \<path to your ssh private key\> opc@\<IP address of a DSE node\>`
+* When you no longer need the DSE cluster, you can run `terraform destroy` and follow on-screen instructions to de-provision your DSE cluster.
 
 ### Files in the configuration
 
