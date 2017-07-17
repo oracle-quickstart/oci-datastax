@@ -8,6 +8,10 @@ output "DSE_OPSC_PublicIP" {
   value = ["${data.baremetal_core_vnic.DSE_OPSC_Vnic.public_ip_address}"]
 }
 
+output "OpsCenter_URL" {
+  value = ["${format("%s:8888", data.baremetal_core_vnic.DSE_OPSC_Vnic.public_ip_address)}"]
+}
+
 output "Cassandra_DB_User_Password" {
   value = ["${var.Cassandra_DB_User_Password}"]
 }
