@@ -20,7 +20,8 @@ It creates a virtual cloud network with a route table, Internet Gateway, Securit
 ![](./img/terraform_apply.png)
 * The time taken to provision a 3-node DSE cluster is between 10 and 15 minutes long. You can point your browser at http://<OpsCenter_URL> to access DataStax Enterprise OpsCenter to start managing your DSE cluster.
 ![](./img/opsc_dashboard.png)
-* You can also SSH into the any of the DSE nodes using similar command: `ssh -i <path to your SSH private key> opc@<IP address of a DSE node>`
+* You can also SSH into the any of the DSE nodes using similar command: `ssh -i <path to your SSH private key> opc@<IP address of a DSE node>`.  You can locate the IP address of your DSE node in Oracle BMC Console's Compute>>Instances>>Instance Details screen.
+![](./img/dse_ip.png)
 * When you no longer need the DSE cluster, you can run `terraform destroy` and follow on-screen instructions to de-provision your DSE cluster.
 
 ### Files in the configuration
