@@ -13,7 +13,7 @@ It creates a virtual cloud network with a route table, Internet Gateway, Securit
 * Source env-vars
   * `$ . env-vars`
 * Update `variables.tf` with your instance options.
-* Update /<ssh_private_key_path/> in `remote-exec.tf` with the absolute path of your ssh private key. Ex. /Users/gilbertlau/.ssh/bmc_rsa
+* Update \<ssh_private_key_path\> in `remote-exec.tf` with the absolute path of your ssh private key. For example, `/Users/gilbertlau/.ssh/bmc_rsa`
 
 ### Files in the configuration
 
