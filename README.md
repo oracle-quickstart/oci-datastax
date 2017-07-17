@@ -11,7 +11,7 @@ It creates a virtual cloud network with a route table, Internet Gateway, Securit
 ### Using this project
 * Update env-vars with the required information.
 * Source env-vars
-  * `$ . env-vars`
+  * `% . env-vars`
 * Update `variables.tf` with your instance options.
 * Update \<ssh_private_key_path\> field in `remote-exec.tf` with the absolute path of your SSH private key. For example, `/Users/gilbertlau/.ssh/bmc_rsa`
 * Run `% terraform plan` and follow on-screen instructions to create and review your execution plan.
