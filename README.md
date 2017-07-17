@@ -3,6 +3,11 @@ Oracle Bare Metal Cloud Services Terraform-based provisioning for DataStax Enter
 
 It creates a virtual cloud network with a route table, Internet Gateway, Security Lists, 3 subnets on different availability domains (ADs) for the DataStax Enterprise cluster nodes and OpsCenter. 
 
+### Prerequisites
+* [Follow this link to install Terraform and Oracle BMC Terraform prvoider](https://github.com/oracle/terraform-provider-baremetal/blob/master/README.md) 
+* [Follow this link to set up your Oracle BMC's fingerprint](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/apisigningkey.htm)
+* [Follow this link to set up SSH key pair for your Oracle BMC BM or VM instances](https://docs.us-phoenix-1.oraclecloud.com/Content/GSG/Tasks/creatingkeys.htm)
+
 ### Using this project
 * Update env-vars with the required information.
 * Source env-vars
