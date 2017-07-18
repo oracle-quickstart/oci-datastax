@@ -9,6 +9,7 @@ It creates a virtual cloud network with a route table, Internet Gateway, Securit
 * [Follow this link to set up SSH key pair for your Oracle BMC BM or VM instances](https://docs.us-phoenix-1.oraclecloud.com/Content/GSG/Tasks/creatingkeys.htm)
 
 ### Using this project
+* Run `% git clone https://github.com/DSPN/oracle-bmc-terraform-dse.git`
 * Update env-vars with the required information.
 * Source env-vars
   * `% . env-vars`
