@@ -49,8 +49,12 @@ variable "DSE_Cluster_Name" {
 }
 
 # Collect #nodes in each AD from a user
-variable "Num_DSE_Nodes_In_Each_AD" {}
+variable "Num_DSE_Nodes_In_Each_AD" {
+   default = "1"
+}
 
 # Collect user provided password for "cassandra" superuser
-variable "Cassandra_DB_User_Password" {}
+variable "Cassandra_DB_User_Password" {
+   default = "datastax1!"
+}
 

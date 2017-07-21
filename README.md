@@ -1,25 +1,43 @@
 # oracle-bmc-terraform-dse
 Oracle Bare Metal Cloud Services Terraform-based provisioning for DataStax Enterprise (DSE)
 
-It creates a virtual cloud network with a route table, Internet Gateway, Security Lists, 3 subnets on different availability domains (ADs) for the DataStax Enterprise cluster nodes and OpsCenter. 
+This asset creates a virtual cloud network with a route table, Internet Gateway, Security Lists, 3 subnets on different availability domains (ADs) for the DataStax Enterprise cluster nodes and OpsCenter. 
 
 ### Prerequisites
-* [Follow this link to install Terraform and Oracle BMC Terraform prvoider](https://github.com/oracle/terraform-provider-baremetal/blob/master/README.md) 
-* [Follow this link to set up your Oracle BMC's fingerprint](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/apisigningkey.htm)
+* [Follow this link to install Terraform and Oracle BMC Terraform provider v1.0.14](https://github.com/oracle/terraform-provider-baremetal/blob/master/README.md)
+* [Follow this link to set up your Oracle BMC's fingerprint for Oracle BMC APIs access](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/apisigningkey.htm)
 * [Follow this link to set up SSH key pair for your Oracle BMC BM or VM instances](https://docs.us-phoenix-1.oraclecloud.com/Content/GSG/Tasks/creatingkeys.htm)
 
+After following these links you should have completed these tasks:
+* Installed the `terraform` binary for your OS.
+* Installed the `terraform-provider-baremetal` plugin ([version v1.0.14](https://github.com/oracle/terraform-provider-baremetal/releases/tag/v1.0.14)) and created the ~/.terraformrc file to reference this plugin.
+* Created an API Signing Key Pair under ~/.oraclebmc directory.
+* Uploaded the public key from the above pair to Oracle BMC to generate the key's fingerprint.
+* Created an SSH key pair to be used instead of a password to authenticate a remote user under ~/.ssh directory.
+
 ### Using this project
-* Run `% git clone https://github.com/DSPN/oracle-bmc-terraform-dse.git`
-* Update env-vars with the required information.
-* Source env-vars
+* Run `% git clone https://github.com/DSPN/oracle-bmc-terraform-dse.git` to clone the Oracle BMC DSPN repo.
+* Run `% cd oracle-bmc-terraform-dse` to change to the repo directory.
+* Update env-vars file under with the required information.
+  * From the Oracle BMC account
+    * TF_VAR_tenancy_ocid
+    * TF_VAR_user_ocid
+    * TF_VAR_fingerprint
+    * TF_VAR_private_key_path
+    * TF_VAR_region
+  * From your local file system
+    * TF_VAR_ssh_public_key
+    * TF_VAR_ssh_private_key
+
+* Source env-vars for appropriate environment
   * `% . env-vars`
-* Update `variables.tf` with your instance options.
+* Update `variables.tf` with your instance options if you need to change the default settings.
 * Update \<ssh_private_key_path\> field in `remote-exec.tf` with the absolute path of your SSH private key. For example, `/Users/gilbertlau/.ssh/bmc_rsa`
 * Run `% terraform plan` and follow on-screen instructions to create and review your execution plan.
-* If everything looks good, run `% terraform apply` and follow on-screen instructions to provision your DSE cluster.
+* If everything looks good, run `% terraform apply` and follow on-screen instructions to provision your DSE cluster. *Currently the install will automatically create nodes in 3 Availability Domains (AD). The number you would like in each AD is specified by the var.Num_DSE_Nodes_In_Each_AD parameter*
 * If it runs successfully, you will see the following output from the command line.
 ![](./img/terraform_apply.png)
-* The time taken to provision a 3-node DSE cluster is between 10 and 15 minutes long. You can point your browser at http://<OpsCenter_URL> to access DataStax Enterprise OpsCenter to start managing your DSE cluster.
+* The time taken to provision a 3-node DSE cluster is roughly 15 minutes long. Once complete, you can point your browser at http://<OpsCenter_URL> to access DataStax Enterprise OpsCenter to start managing your DSE cluster.
 ![](./img/opsc_dashboard.png)
 * You can also SSH into the any of the DSE nodes using this command: `% ssh -i <path to your SSH private key> opc@<IP address of a DSE node>`.  You can locate the IP address of your DSE node in Oracle BMC Console's Compute>>Instances>>Instance Details screen.
 ![](./img/dse_ip.png)
@@ -29,9 +47,9 @@ It creates a virtual cloud network with a route table, Internet Gateway, Securit
 ### Files in the configuration
 
 #### `env-vars`
-Is used to export the environmental variables used in the configuration. These are usually authentication related, be sure to exclude this file from your version control system. It's typical to keep this file outside of the configuration.
+This is used to export the environmental variables for the configuration. These are usually authentication related, be sure to exclude this file from your version control system. It's typical to keep this file outside of the configuration.
 
-Before you "terraform plan", "terraform apply", or "terraform destroy" the configuration source the following file -  
+Before you run "terraform plan", "terraform apply", or "terraform destroy", source the configuration file -  
 `$ . env-vars`
 
 #### `compute.tf`
