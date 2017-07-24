@@ -18,7 +18,7 @@ After following these links you should have completed these tasks:
 ### Using this project
 * Run `% git clone https://github.com/DSPN/oracle-bmc-terraform-dse.git` to clone the Oracle BMC DSPN repo.
 * Run `% cd oracle-bmc-terraform-dse` to change to the repo directory.
-* Update env-vars file under with the required information.
+* Update env-vars file with the required information.
   * From your Oracle BMC account
     * TF_VAR_tenancy_ocid
     * TF_VAR_user_ocid
