@@ -1,7 +1,7 @@
 # oracle-bmc-terraform-dse
 Oracle Bare Metal Cloud Services Terraform-based provisioning for DataStax Enterprise (DSE)
 
-This asset creates a virtual cloud network with a route table, Internet Gateway, Security Lists, 3 subnets on different availability domains (ADs) for the DataStax Enterprise cluster nodes and OpsCenter. 
+This asset creates a virtual cloud network with a route table, Internet Gateway, Security Lists, 3 subnets on different availability domains (ADs) for the DataStax Enterprise cluster nodes using NVMe SSDs as data disks and DataStax Enterprise OpsCenter. 
 
 ### Prerequisites
 * [Follow this link to install Terraform and Oracle BMC Terraform provider (v1.0.14)](https://github.com/oracle/terraform-provider-baremetal/blob/master/README.md)
