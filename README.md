@@ -13,7 +13,7 @@ The use of DataStax software is free in development. Deploying and running DataS
 * [Follow this link to set up your Oracle BMC's fingerprint for Oracle BMC APIs access](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/apisigningkey.htm)
 * [Follow this link to set up SSH key pair for your Oracle BMC BM or VM instances](https://docs.us-phoenix-1.oraclecloud.com/Content/GSG/Tasks/creatingkeys.htm)
 
-&nbsp;&nbsp;After following these links you should have completed these tasks:
+&nbsp;&nbsp;&nbsp;After following these links you should have completed these tasks:
 * Installed the `terraform` binary for your OS.
 * Installed the `terraform-provider-baremetal` release ([version v1.0.14](https://github.com/oracle/terraform-provider-baremetal/releases/tag/v1.0.14)) and created the ~/.terraformrc file that specifies the path to the baremetal provider.
 * Created an Oracle BMC API Signing Key Pair under ~/.oraclebmc directory.
