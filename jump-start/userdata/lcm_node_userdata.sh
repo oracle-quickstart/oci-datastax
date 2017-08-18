@@ -2,7 +2,7 @@
 
 cd ~opc
 
-curl https://raw.githubusercontent.com/DSPN/oracle-bmc-terraform-dse/jump-start/userdata/lcm_node.sh > lcm_node.sh
+curl https://raw.githubusercontent.com/DSPN/oracle-bmc-terraform-dse/master/jump-start/userdata/lcm_node.sh > lcm_node.sh
 
 chmod +x lcm_node.sh
 
