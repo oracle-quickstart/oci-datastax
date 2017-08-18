@@ -35,6 +35,20 @@ resource "baremetal_core_security_list" "DataStax_PublicSubnet" {
         protocol = "6"
     }]
     ingress_security_rules = [{
+        icmp_options {
+            "type" = 3
+            "code" = 4
+        }
+        protocol = "1"
+        source = "0.0.0.0/0"
+    },
+        {
+        icmp_options {
+            "type" = 3
+        }
+        protocol = "1"
+        source = "10.0.0.0/16"
+    },
         tcp_options {
             "max" = 22 
             "min" = 22
