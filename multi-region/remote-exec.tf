@@ -11,7 +11,7 @@ resource "null_resource" "remote-exec" {
         user = "${var.host_user_name}"
         private_key = "${var.ssh_private_key}"
       }
-      source      = "{$var.ssh_private_key_path}"
+      source      = "/Users/gilbertlau/.ssh/bmc_rsa"
       destination = "/home/opc/.ssh/bmc_rsa"
     }
 

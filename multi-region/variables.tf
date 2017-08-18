@@ -67,8 +67,8 @@ variable "DSE_Cluster_Topology_PHX_Region" {
   type = "map"
 
   default = {
-    AD1_Count = "1"
-    AD2_Count = "0"
+    AD1_Count = "0"
+    AD2_Count = "1"
     AD3_Count = "0"
   }
 }
@@ -78,8 +78,8 @@ variable "DSE_Cluster_Topology_IAD_Region" {
   type = "map"
 
   default = {
-    AD1_Count = "1"
-    AD2_Count = "0"
+    AD1_Count = "0"
+    AD2_Count = "1"
     AD3_Count = "0"
   }
 }
