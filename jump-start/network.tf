@@ -49,6 +49,7 @@ resource "baremetal_core_security_list" "DataStax_PublicSubnet" {
         protocol = "1"
         source = "10.0.0.0/16"
     },
+        {
         tcp_options {
             "max" = 22 
             "min" = 22
