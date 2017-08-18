@@ -56,7 +56,7 @@ unzip $release.zip
 cd install-datastax-ubuntu-$release/bin/lcm/
 
 # Set dcsize to 199 (a very big number) as interim solution to avoid race condition
-$data_center_size=199
+data_center_size=199
 
 ./addNode.py \
 --opsc-ip $opsc_ip \
