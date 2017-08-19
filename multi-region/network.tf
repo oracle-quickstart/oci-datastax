@@ -1,6 +1,6 @@
 # Network resources
 
-# PHX
+# PHX (Phoenix region)
 
 resource "baremetal_core_virtual_network" "DataStax_VCN_PHX" {
     provider = "baremetal.phx"
@@ -220,8 +220,7 @@ resource "baremetal_core_subnet" "DataStax_PublicSubnet_AD_PHX" {
 
 
 
-# IAD
-
+# IAD (Ashburn region)
 
 resource "baremetal_core_virtual_network" "DataStax_VCN_IAD" {
     provider = "baremetal.iad"

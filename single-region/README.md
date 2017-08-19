@@ -1,4 +1,4 @@
-# oracle-bmc-terraform-dse [Multiple BMC regions mapping to DSE Datacenters]
+# oracle-bmc-terraform-dse [Single BMC region with DSE Datacenters mapping to BMC Availability Domains]
 Oracle Bare Metal Cloud Services Terraform-based provisioning for DataStax Enterprise (DSE)
 
 This asset creates a virtual cloud network with a route table, Internet Gateway, Security Lists, 3 subnets on different availability domains (ADs) for the DataStax Enterprise cluster nodes using NVMe SSDs as data disks and DataStax Enterprise OpsCenter. 

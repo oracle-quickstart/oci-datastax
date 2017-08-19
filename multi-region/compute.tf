@@ -30,6 +30,8 @@ resource "baremetal_core_instance" "DSE_OPSC" {
 }
 
 
+# PHX (Phoenix region)
+
 resource "baremetal_core_instance" "DSE_Node_PHX_0" {
     provider = "baremetal.phx"
     depends_on = ["baremetal_core_instance.DSE_OPSC"]
@@ -110,6 +112,8 @@ resource "baremetal_core_instance" "DSE_Node_PHX_2" {
     count = "${var.DSE_Cluster_Topology_PHX_Region["AD3_Count"]}"
 }
 
+
+# IAD (Ashburn region)
 
 resource "baremetal_core_instance" "DSE_Node_IAD_0" {
     provider = "baremetal.iad"

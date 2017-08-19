@@ -9,6 +9,7 @@ provider "baremetal" {
 }
 
 
+# PHX (Phoenix region)
 provider "baremetal" {
   region = "us-phoenix-1"
   alias = "phx"
@@ -18,6 +19,7 @@ provider "baremetal" {
   private_key_path = "${var.private_key_path}"
 }
 
+# IAD (Ashburn region)
 provider "baremetal" {
   region = "us-ashburn-1"
   alias = "iad"
@@ -26,3 +28,4 @@ provider "baremetal" {
   fingerprint = "${var.fingerprint}"
   private_key_path = "${var.private_key_path}"
 }
+
