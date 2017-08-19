@@ -62,11 +62,4 @@ sleep 1m
 --repouser $dsa_username \
 --repopw $dsa_password
 
-./triggerInstall.py \
---opsc-ip $private_ip \
---clustername $cluster_name \
---clustersize $cluster_size \
---dbpasswd $db_pwd \
---dclevel
-
 
