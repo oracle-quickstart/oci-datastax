@@ -36,7 +36,7 @@ The use of DataStax software is free in development. Deploying and running DataS
 
 * Source env-vars for appropriate environment
   * `% . env-vars`
-* Update `variables.tf` with your instance options if you need to change the default settings.  In addition, you need to proivde the following DataStax Academy credentials in order to execute the terraform templates.
+* Update `variables.tf` with your instance options if you need to change the default settings.  In addition, you need to proivde your DataStax Academy credentials in order to execute the terraform templates. If you do not have one yet, you can register [here](https://academy.datastax.com/user/register?destination=home).
 ```
 # DataStax Academy Credentials for DSE software download
 variable "DataStax_Academy_Creds" {
