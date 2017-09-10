@@ -3,6 +3,8 @@
 # Collect input param
 cluster_name=$1
 host_user_name=$2
+dsa_username=$3
+dsa_password=$4
 opc_passwd="datastax1!"
 
 # In lcm_opscenter.sh
@@ -87,8 +89,12 @@ sleep 1m
 
 ./setupCluster.py \
 --opsc-ip $private_ip \
+--pause 60 \
+--trys 40 \
 --clustername $cluster_name \
 --privkey $privkey \
 --datapath /mnt/data1 \
---user $host_user_name
+--user $host_user_name \
+--repouser $dsa_username \
+--repopw $dsa_password
 

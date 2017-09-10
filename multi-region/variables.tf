@@ -57,35 +57,36 @@ variable "DataStax_Academy_Creds" {
   type = "map"
 
   default = {
-    username = "datastax@google.com"
-    password = "8GdeeVT2s7zi"
-  }
-}
-
-# DSE cluster deployment topology by availability domain
-variable "DSE_Cluster_Topology_PHX_Region" {
-  type = "map"
-
-  default = {
-    AD1_Count = "0"
-    AD2_Count = "1"
-    AD3_Count = "0"
-  }
-}
-
-# DSE cluster deployment topology by availability domain
-variable "DSE_Cluster_Topology_IAD_Region" {
-  type = "map"
-
-  default = {
-    AD1_Count = "0"
-    AD2_Count = "1"
-    AD3_Count = "0"
+    username = "datastax@oracle.com"
+    password = "*9En9HH4j^p4"
   }
 }
 
 # Collect user provided password for "cassandra" superuser
 variable "Cassandra_DB_User_Password" {
-  default = "datastax1!" 
+  default = "datastax1!"
 }
+
+# DSE cluster deployment topology by availability domain (Phoenix region: PHX)
+variable "DSE_Cluster_Topology_PHX_Region" {
+  type = "map"
+
+  default = {
+    AD1_Count = "1"
+    AD2_Count = "1"
+    AD3_Count = "1"
+  }
+}
+
+# DSE cluster deployment topology by availability domain (Ashburn region: IAD)
+variable "DSE_Cluster_Topology_IAD_Region" {
+  type = "map"
+
+  default = {
+    AD1_Count = "1"
+    AD2_Count = "1"
+    AD3_Count = "1"
+  }
+}
+
 
