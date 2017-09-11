@@ -1,7 +1,7 @@
 # oracle-bmc-terraform-dse [Multiple BMC regions mapping to DSE Datacenters]
 Oracle Bare Metal Cloud Services Terraform-based provisioning for DataStax Enterprise (DSE)
 
-This asset creates a virtual cloud network with a route table, Internet Gateway, Security Lists, 3 subnets on different availability domains (ADs) for the DataStax Enterprise cluster nodes using NVMe SSDs as data disks and DataStax Enterprise OpsCenter. 
+This asset creates a virtual cloud network with a route table, Internet Gateway, Security Lists, 3 subnets on different availability domains (ADs) for the DataStax Enterprise cluster nodes using NVMe SSDs as data disks and DataStax Enterprise OpsCenter in BMC Phoenix region.  Additionally, it creates the same assets in BMC Ashburn region instead of creating a DataStax Enterprise OpsCenter but connecting to the DataStax Enterprise OpsCenter instance in BMC Phoenix region.
 
 ### Disclaimer
 The use of this repo is intended for development purpose only.  Usage of this repo is solely at user’s own risks.  There is no SLAs around any issues posted on this repo.  Internal prioritization of repo issues will be processed by the owners of this repo periodically.  There is no association with any technical support subscription from DataStax.
@@ -36,19 +36,19 @@ The use of DataStax software is free in development. Deploying and running DataS
 
 * Source env-vars for appropriate environment
   * `% . env-vars`
-* Update `variables.tf` with your instance options if you need to change the default settings.  In addition, you need to proivde your DataStax Academy credentials in order to execute the terraform templates. If you do not have a DataStax Academy account yet, you can register [here](https://academy.datastax.com/user/register?destination=home).
+* Update `variables.tf` with your instance options if you need to change the default settings.  In particular, you need to proivde your DataStax Academy credentials in order to execute the terraform templates. If you do not have a DataStax Academy account yet, you can register [here](https://academy.datastax.com/user/register?destination=home).
 ```
 # DataStax Academy Credentials for DSE software download
 variable "DataStax_Academy_Creds" {
   type = "map"
 
   default = {
-    username = "abc@gmail.com"
-    password = "8GdeeVT2z7si"
+    username = "<Your DataStax Academy username>"
+    password = "<Your DataStax Academy password>"
   }
 }
 ```
-The default configuration will provision a DSE cluster with 3 nodes in Phoenix region and 3 nodes in Ashburn region with one node in each availability domain defined below. Each BMC region is mapped to a DSE datacenter construct.
+The default configuration will provision a DSE cluster with 3 nodes in Phoenix region and 3 nodes in Ashburn region with one node in each availability domain (AD) defined below.  For instance, AD1_Count varilable inside DSE_Cluster_Topology_PHX_Region map represents node count in availability domain 1 of Phoenix region namely, FcAL:PHX-AD-1. Each BMC region is mapped to a DSE datacenter construct.
 ```
 # DSE cluster deployment topology by availability domain (Phoenix region: PHX)
 variable "DSE_Cluster_Topology_PHX_Region" {
