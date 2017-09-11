@@ -48,7 +48,7 @@ variable "DataStax_Academy_Creds" {
   }
 }
 ```
-The default configuration will provision a DSE cluster with 3 nodes in Phoenix region and 3 nodes in Ashburn region with one node in each availability domain (AD) defined below.  For instance, AD1_Count varilable inside DSE_Cluster_Topology_PHX_Region map represents node count in availability domain 1 of Phoenix region namely, FcAL:PHX-AD-1. Each BMC region is mapped to a DSE datacenter construct.
+The default configuration will provision a DSE cluster with 3 nodes in Phoenix region and 3 nodes in Ashburn region with one node in each availability domain (AD) defined below.  For instance, AD1_Count inside DSE_Cluster_Topology_PHX_Region map variable represents node count in availability domain 1 of Phoenix region namely, FcAL:PHX-AD-1. Each BMC region is mapped to a DSE datacenter construct.
 ```
 # DSE cluster deployment topology by availability domain (Phoenix region: PHX)
 variable "DSE_Cluster_Topology_PHX_Region" {
