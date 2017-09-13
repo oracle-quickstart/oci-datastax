@@ -79,9 +79,9 @@ You can modify the node count in each availability domain to satisfy your deploy
 * If it runs successfully, you will see the following output from the command line.
 ![](../img/terraform_apply.png)
 * The time taken to deploy the default DSE cluster configuraiton is roughly 20 minutes long. Once complete, you can point your browser at http://<OpsCenter_URL> to access DataStax Enterprise OpsCenter to start managing your DSE cluster.
-![](./img/opsc_dashboard.png)
+![](../img/opsc_dashboard.png)
 * You can also SSH into the any of the DSE nodes using this command: `% ssh -i <path to your SSH private key> opc@<IP address of a DSE node>`.  You can locate the IP address of your DSE node in Oracle BMC Console's Compute>>Instances>>Instance Details screen.
-![](./img/dse_ip.png)
+![](../img/dse_ip.png)
 * Similarly, you can cqlsh into your DSE nodes using `% cqlsh <IP address of a DSE node> -u cassandra -p <Cassandra_DB_User_Password>`.
 * When you no longer need the DSE cluster, you can run `% terraform destroy` and follow on-screen instructions to de-provision your DSE cluster.
 
