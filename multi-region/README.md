@@ -77,7 +77,7 @@ You can modify the node count in each availability domain to satisfy your deploy
 * Run `% terraform plan` and follow on-screen instructions to create and review your execution plan.
 * If everything looks good, run `% terraform apply` and follow on-screen instructions to provision your DSE cluster. *Currently the install will automatically create nodes in 3 Availability Domains (AD). The number you would like in each AD is specified by the Num_DSE_Nodes_In_Each_AD variable inside the variables.tf file*.
 * If it runs successfully, you will see the following output from the command line.
-![](./img/terraform_apply.png)
+![](./multi-region/img/terraform_apply.png)
 * The time taken to deploy the default DSE cluster configuraiton is roughly 20 minutes long. Once complete, you can point your browser at http://<OpsCenter_URL> to access DataStax Enterprise OpsCenter to start managing your DSE cluster.
 ![](./img/opsc_dashboard.png)
 * You can also SSH into the any of the DSE nodes using this command: `% ssh -i <path to your SSH private key> opc@<IP address of a DSE node>`.  You can locate the IP address of your DSE node in Oracle BMC Console's Compute>>Instances>>Instance Details screen.
