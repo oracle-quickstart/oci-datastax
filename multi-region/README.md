@@ -22,7 +22,7 @@ The use of DataStax software is free in development. Deploying and running DataS
 
 ### Using this project
 * Run `% git clone https://github.com/DSPN/oracle-bmc-terraform-dse.git` to clone the Oracle BMC DSPN repo.
-* Run `% cd oracle-bmc-terraform-dse` to change to the repo directory.
+* Run `% cd oracle-bmc-terraform-dse/multi-region` to change to the repo directory.
 * Update env-vars file with the required information.
   * From your Oracle BMC account
     * TF_VAR_tenancy_ocid
