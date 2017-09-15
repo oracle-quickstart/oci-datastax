@@ -77,9 +77,10 @@ popd
 
 ##### Set up cluster in OpsCenter the LCM way
 cd ~opc
-wget https://github.com/DSPN/install-datastax-ubuntu/archive/5.5.3.zip
-unzip 5.5.3.zip
-cd install-datastax-ubuntu-5.5.3/bin/lcm/
+release="5.5.6"
+wget https://github.com/DSPN/install-datastax-ubuntu/archive/$release.zip
+unzip $release.zip
+cd install-datastax-ubuntu-$release/bin/lcm/
 
 # Retrieve OpsCenter's public IP address
 private_ip=`echo $(hostname -I)`
