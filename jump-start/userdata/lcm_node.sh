@@ -66,9 +66,10 @@ node_id=$private_ip
 rack="rack1"
 
 cd ~opc
-wget https://github.com/DSPN/install-datastax-ubuntu/archive/5.5.3.zip
-unzip 5.5.3.zip
-cd install-datastax-ubuntu-5.5.3/bin/lcm/
+release="5.5.6"
+wget https://github.com/DSPN/install-datastax-ubuntu/archive/$release.zip
+unzip $release.zip
+cd install-datastax-ubuntu-$release/bin/lcm/
 
 ./addNode.py \
 --opsc-ip $opsc_ip \
