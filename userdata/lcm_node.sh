@@ -9,7 +9,6 @@ echo In lcm_node.sh
 echo opsc_ip = $opsc_ip
 echo cluster_name = $cluster_name
 echo data_center_name = $data_center_name
-echo data_center_size = $data_center_size
 
 ##### Turn off the firewall
 service firewalld stop
