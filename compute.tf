@@ -21,6 +21,7 @@ resource "oci_core_instance" "DSE_OPSC" {
               var.DSE_Cluster_Topology_IAD_Region["AD1_Count"] +
               var.DSE_Cluster_Topology_IAD_Region["AD2_Count"] +
               var.DSE_Cluster_Topology_IAD_Region["AD3_Count"]}",
+           "${length(var.regions)}",
            "${var.host_user_name}",
            "${var.DataStax_Academy_Creds["username"]}",
            "${var.DataStax_Academy_Creds["password"]}",
@@ -48,11 +49,7 @@ resource "oci_core_instance" "DSE_Node_PHX_0" {
            "./lcm_node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
            "${var.DSE_Cluster_Name}",
-           "us-phoenix-1",
-           "${var.DSE_Cluster_Topology_PHX_Region["AD1_Count"] +
-              var.DSE_Cluster_Topology_PHX_Region["AD2_Count"] +
-              var.DSE_Cluster_Topology_PHX_Region["AD3_Count"]}",
-           "${var.Cassandra_DB_User_Password}"
+           "us-phoenix-1"
         ))}"
     }
     count = "${var.DSE_Cluster_Topology_PHX_Region["AD1_Count"]}"
@@ -75,11 +72,7 @@ resource "oci_core_instance" "DSE_Node_PHX_1" {
            "./lcm_node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
            "${var.DSE_Cluster_Name}",
-           "us-phoenix-1",
-           "${var.DSE_Cluster_Topology_PHX_Region["AD1_Count"] +
-              var.DSE_Cluster_Topology_PHX_Region["AD2_Count"] +
-              var.DSE_Cluster_Topology_PHX_Region["AD3_Count"]}",
-           "${var.Cassandra_DB_User_Password}"
+           "us-phoenix-1"
         ))}"
     }
     count = "${var.DSE_Cluster_Topology_PHX_Region["AD2_Count"]}"
@@ -102,11 +95,7 @@ resource "oci_core_instance" "DSE_Node_PHX_2" {
            "./lcm_node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
            "${var.DSE_Cluster_Name}",
-           "us-phoenix-1",
-           "${var.DSE_Cluster_Topology_PHX_Region["AD1_Count"] +
-              var.DSE_Cluster_Topology_PHX_Region["AD2_Count"] +
-              var.DSE_Cluster_Topology_PHX_Region["AD3_Count"]}",
-           "${var.Cassandra_DB_User_Password}"
+           "us-phoenix-1"
         ))}"
     }   
     count = "${var.DSE_Cluster_Topology_PHX_Region["AD3_Count"]}"
@@ -131,11 +120,7 @@ resource "oci_core_instance" "DSE_Node_IAD_0" {
            "./lcm_node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
            "${var.DSE_Cluster_Name}",
-           "us-ashburn-1",
-           "${var.DSE_Cluster_Topology_IAD_Region["AD1_Count"] +
-              var.DSE_Cluster_Topology_IAD_Region["AD2_Count"] +
-              var.DSE_Cluster_Topology_IAD_Region["AD3_Count"]}",
-           "${var.Cassandra_DB_User_Password}"
+           "us-ashburn-1"
         ))}"
     }
     count = "${var.DSE_Cluster_Topology_IAD_Region["AD1_Count"]}"
@@ -158,11 +143,7 @@ resource "oci_core_instance" "DSE_Node_IAD_1" {
            "./lcm_node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
            "${var.DSE_Cluster_Name}",
-           "us-ashburn-1",
-           "${var.DSE_Cluster_Topology_IAD_Region["AD1_Count"] +
-              var.DSE_Cluster_Topology_IAD_Region["AD2_Count"] +
-              var.DSE_Cluster_Topology_IAD_Region["AD3_Count"]}",
-           "${var.Cassandra_DB_User_Password}"
+           "us-ashburn-1"
         ))}"
     }
     count = "${var.DSE_Cluster_Topology_IAD_Region["AD2_Count"]}"
@@ -185,11 +166,7 @@ resource "oci_core_instance" "DSE_Node_IAD_2" {
            "./lcm_node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
            "${var.DSE_Cluster_Name}",
-           "us-ashburn-1",
-           "${var.DSE_Cluster_Topology_IAD_Region["AD1_Count"] +
-              var.DSE_Cluster_Topology_IAD_Region["AD2_Count"] +
-              var.DSE_Cluster_Topology_IAD_Region["AD3_Count"]}",
-           "${var.Cassandra_DB_User_Password}"
+           "us-ashburn-1"
         ))}"
     }
     count = "${var.DSE_Cluster_Topology_IAD_Region["AD3_Count"]}"

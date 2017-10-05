@@ -4,8 +4,6 @@
 opsc_ip=$1
 cluster_name=$2
 data_center_name=$3
-data_center_size=$4
-db_passwd=$5
 
 echo In lcm_node.sh
 echo opsc_ip = $opsc_ip
@@ -58,10 +56,8 @@ cd install-datastax-ubuntu-$release/bin/lcm/
 ./addNode.py \
 --opsc-ip $opsc_ip \
 --clustername $cluster_name \
---dcsize $data_center_size \
 --dcname $data_center_name \
 --rack $rack \
 --pubip $public_ip \
 --privip $private_ip \
 --nodeid $node_id \
---dbpasswd $db_passwd

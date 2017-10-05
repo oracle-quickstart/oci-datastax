@@ -3,10 +3,11 @@
 # Collect input param
 cluster_name=$1
 cluster_size=$2
-host_user_name=$3
-dsa_username=$4
-dsa_password=$5
-db_pwd=$6
+num_dcs=$3 
+host_user_name=$4
+dsa_username=$5
+dsa_password=$6
+db_pwd=$7
 
 # In lcm_opscenter.sh
 echo cluster_name = $cluster_name
@@ -39,7 +40,7 @@ cd install-datastax-redhat-master/bin/
 
 ## Set up cluster in OpsCenter the LCM way
 cd ~opc
-release="5.5.6"
+release="6.0.0"
 wget https://github.com/DSPN/install-datastax-ubuntu/archive/$release.zip
 unzip $release.zip
 cd install-datastax-ubuntu-$release/bin/lcm/
@@ -61,5 +62,16 @@ sleep 1m
 --datapath /mnt/data1 \
 --repouser $dsa_username \
 --repopw $dsa_password
+
+./triggerInstall.py \
+--opsc-ip $public_ip \
+--clustername $cluster_name \
+--clustersize $cluster_size \
+--dbpasswd $db_pwd \
+--dclevel
+
+./waitForJobs.py \
+--num $num_dcs \
+--opsc-ip $public_ip
 
 
