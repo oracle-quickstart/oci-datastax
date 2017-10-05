@@ -47,7 +47,7 @@ node_id=$private_ip
 rack="rack1"
 
 cd ~opc
-release="5.5.6"
+release="6.0.0"
 wget https://github.com/DSPN/install-datastax-ubuntu/archive/$release.zip
 unzip $release.zip
 cd install-datastax-ubuntu-$release/bin/lcm/
@@ -59,4 +59,4 @@ cd install-datastax-ubuntu-$release/bin/lcm/
 --rack $rack \
 --pubip $public_ip \
 --privip $private_ip \
---nodeid $node_id \
+--nodeid $node_id
