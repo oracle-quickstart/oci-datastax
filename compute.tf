@@ -11,7 +11,7 @@ resource "oci_core_instance" "DSE_OPSC" {
     subnet_id = "${oci_core_subnet.DataStax_PublicSubnet_AD_PHX.0.id}"
     metadata {
         ssh_authorized_keys = "${var.ssh_public_key}"
-        user_data = "${base64encode(format("%s\n%s %s %s %s %s %s %s\n",
+        user_data = "${base64encode(format("%s\n%s %s %s %s %s %s %s %s\n",
            file(var.OPSC_BootStrap),
            "./lcm_opscenter.sh",
            "${var.DSE_Cluster_Name}",
