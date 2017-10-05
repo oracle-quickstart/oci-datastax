@@ -44,7 +44,7 @@ resource "oci_core_instance" "DSE_Node_PHX_0" {
     subnet_id = "${oci_core_subnet.DataStax_PublicSubnet_AD_PHX.0.id}"
     metadata {
         ssh_authorized_keys = "${var.ssh_public_key}"
-        user_data = "${base64encode(format("%s\n%s %s %s %s %s %s\n",
+        user_data = "${base64encode(format("%s\n%s %s %s %s\n",
            file(var.DSE_BootStrap),
            "./lcm_node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
@@ -67,7 +67,7 @@ resource "oci_core_instance" "DSE_Node_PHX_1" {
     subnet_id = "${oci_core_subnet.DataStax_PublicSubnet_AD_PHX.1.id}"
     metadata {
         ssh_authorized_keys = "${var.ssh_public_key}"
-        user_data = "${base64encode(format("%s\n%s %s %s %s %s %s\n",
+        user_data = "${base64encode(format("%s\n%s %s %s %s\n",
            file(var.DSE_BootStrap),
            "./lcm_node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
@@ -90,7 +90,7 @@ resource "oci_core_instance" "DSE_Node_PHX_2" {
     subnet_id = "${oci_core_subnet.DataStax_PublicSubnet_AD_PHX.2.id}"
     metadata {
         ssh_authorized_keys = "${var.ssh_public_key}"
-        user_data = "${base64encode(format("%s\n%s %s %s %s %s %s\n",
+        user_data = "${base64encode(format("%s\n%s %s %s %s\n",
            file(var.DSE_BootStrap),
            "./lcm_node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
@@ -115,7 +115,7 @@ resource "oci_core_instance" "DSE_Node_IAD_0" {
     subnet_id = "${oci_core_subnet.DataStax_PublicSubnet_AD_IAD.0.id}"
     metadata {
         ssh_authorized_keys = "${var.ssh_public_key}"
-        user_data = "${base64encode(format("%s\n%s %s %s %s %s %s\n",
+        user_data = "${base64encode(format("%s\n%s %s %s %s\n",
            file(var.DSE_BootStrap),
            "./lcm_node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
@@ -138,7 +138,7 @@ resource "oci_core_instance" "DSE_Node_IAD_1" {
     subnet_id = "${oci_core_subnet.DataStax_PublicSubnet_AD_IAD.1.id}"
     metadata {
         ssh_authorized_keys = "${var.ssh_public_key}"
-        user_data = "${base64encode(format("%s\n%s %s %s %s %s %s\n",
+        user_data = "${base64encode(format("%s\n%s %s %s %s\n",
            file(var.DSE_BootStrap),
            "./lcm_node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
@@ -161,7 +161,7 @@ resource "oci_core_instance" "DSE_Node_IAD_2" {
     subnet_id = "${oci_core_subnet.DataStax_PublicSubnet_AD_IAD.2.id}"
     metadata {
         ssh_authorized_keys = "${var.ssh_public_key}"
-        user_data = "${base64encode(format("%s\n%s %s %s %s %s %s\n",
+        user_data = "${base64encode(format("%s\n%s %s %s %s\n",
            file(var.DSE_BootStrap),
            "./lcm_node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
