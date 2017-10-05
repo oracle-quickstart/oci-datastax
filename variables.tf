@@ -10,6 +10,10 @@ variable "region" {}
 variable "ssh_public_key" {}
 variable "ssh_private_key" {}
 
+variable "regions" {
+    default = ["us-phoenix-1", "us-ashburn-1"]
+}
+
 variable "InstanceOS" {
     default = "Oracle Linux"
 }
@@ -48,13 +52,41 @@ variable "DSE_Cluster_Name" {
    default = "mycluster"
 }
 
-# Collect #nodes in each AD from a user
-variable "Num_DSE_Nodes_In_Each_AD" {
-   default = "1"
+# DataStax Academy Credentials for DSE software download
+variable "DataStax_Academy_Creds" {
+  type = "map"
+
+  default = {
+    username = "datastax@oracle.com"
+    password = "*9En9HH4j^p4"
+  }
 }
 
 # Collect user provided password for "cassandra" superuser
 variable "Cassandra_DB_User_Password" {
-   default = "datastax1!"
+  default = "datastax1!"
 }
+
+# DSE cluster deployment topology by availability domain (Phoenix region: PHX)
+variable "DSE_Cluster_Topology_PHX_Region" {
+  type = "map"
+
+  default = {
+    AD1_Count = "0"
+    AD2_Count = "1"
+    AD3_Count = "1"
+  }
+}
+
+# DSE cluster deployment topology by availability domain (Ashburn region: IAD)
+variable "DSE_Cluster_Topology_IAD_Region" {
+  type = "map"
+
+  default = {
+    AD1_Count = "1"
+    AD2_Count = "1"
+    AD3_Count = "1"
+  }
+}
+
 

@@ -1,7 +1,7 @@
-# oracle-bmc-terraform-dse
+# oracle-bmc-terraform-dse [Multiple BMC regions mapping to DSE Datacenters]
 Oracle Bare Metal Cloud Services Terraform-based provisioning for DataStax Enterprise (DSE)
 
-This asset creates a virtual cloud network with a route table, Internet Gateway, Security Lists, 3 subnets on different availability domains (ADs) for the DataStax Enterprise cluster nodes using NVMe SSDs as data disks and DataStax Enterprise OpsCenter. 
+This asset creates a virtual cloud network with a route table, Internet Gateway, Security Lists, 3 subnets on different availability domains (ADs) for the DataStax Enterprise cluster nodes using NVMe SSDs as data disks and DataStax Enterprise OpsCenter in BMC Phoenix region.  Additionally, it creates the same assets in BMC Ashburn region instead of creating a DataStax Enterprise OpsCenter but connecting to the DataStax Enterprise OpsCenter instance in BMC Phoenix region.
 
 ### Disclaimer
 The use of this repo is intended for development purpose only.  Usage of this repo is solely at user’s own risks.  There is no SLAs around any issues posted on this repo.  Internal prioritization of repo issues will be processed by the owners of this repo periodically.  There is no association with any technical support subscription from DataStax.
@@ -22,7 +22,7 @@ The use of DataStax software is free in development. Deploying and running DataS
 
 ### Using this project
 * Run `% git clone https://github.com/DSPN/oracle-bmc-terraform-dse.git` to clone the Oracle BMC DSPN repo.
-* Run `% cd oracle-bmc-terraform-dse` to change to the repo directory.
+* Run `% cd oracle-bmc-terraform-dse/multi-region` to change to the repo directory.
 * Update env-vars file with the required information.
   * From your Oracle BMC account
     * TF_VAR_tenancy_ocid
@@ -36,16 +36,52 @@ The use of DataStax software is free in development. Deploying and running DataS
 
 * Source env-vars for appropriate environment
   * `% . env-vars`
-* Update `variables.tf` with your instance options if you need to change the default settings.
+* Update `variables.tf` with your instance options if you need to change the default settings.  In particular, you need to proivde your DataStax Academy credentials in order to execute the terraform templates. If you do not have a DataStax Academy account yet, you can register [here](https://academy.datastax.com/user/register?destination=home).
+```
+# DataStax Academy Credentials for DSE software download
+variable "DataStax_Academy_Creds" {
+  type = "map"
+
+  default = {
+    username = "<Your DataStax Academy username>"
+    password = "<Your DataStax Academy password>"
+  }
+}
+```
+The default configuration will provision a DSE cluster with 3 nodes in Phoenix region and 3 nodes in Ashburn region with one node in each availability domain (AD) defined below.  For instance, AD1_Count inside DSE_Cluster_Topology_PHX_Region map variable represents node count in availability domain 1 of Phoenix region namely, FcAL:PHX-AD-1. Each BMC region is mapped to a DSE datacenter construct.
+```
+# DSE cluster deployment topology by availability domain (Phoenix region: PHX)
+variable "DSE_Cluster_Topology_PHX_Region" {
+  type = "map"
+
+  default = {
+    AD1_Count = "1"
+    AD2_Count = "1"
+    AD3_Count = "1"
+  }
+}
+
+# DSE cluster deployment topology by availability domain (Ashburn region: IAD)
+variable "DSE_Cluster_Topology_IAD_Region" {
+  type = "map"
+
+  default = {
+    AD1_Count = "1"
+    AD2_Count = "1"
+    AD3_Count = "1"
+  }
+}
+```
+You can modify the node count in each availability domain to satisfy your deployment requirements.
 * Update \<ssh_private_key_path\> field in `remote-exec.tf` with the absolute path of your SSH private key. For example, `/Users/gilbertlau/.ssh/bmc_rsa`
 * Run `% terraform plan` and follow on-screen instructions to create and review your execution plan.
 * If everything looks good, run `% terraform apply` and follow on-screen instructions to provision your DSE cluster. *Currently the install will automatically create nodes in 3 Availability Domains (AD). The number you would like in each AD is specified by the Num_DSE_Nodes_In_Each_AD variable inside the variables.tf file*.
 * If it runs successfully, you will see the following output from the command line.
-![](./img/terraform_apply.png)
-* The time taken to provision a 3-node DSE cluster is roughly 15 minutes long. Once complete, you can point your browser at http://<OpsCenter_URL> to access DataStax Enterprise OpsCenter to start managing your DSE cluster.
-![](./img/opsc_dashboard.png)
+![](../img/terraform_apply.png)
+* The time taken to deploy the default DSE cluster configuraiton is roughly 20 minutes long. Once complete, you can point your browser at http://<OpsCenter_URL> to access DataStax Enterprise OpsCenter to start managing your DSE cluster.
+![](../img/opsc_dashboard.png)
 * You can also SSH into the any of the DSE nodes using this command: `% ssh -i <path to your SSH private key> opc@<IP address of a DSE node>`.  You can locate the IP address of your DSE node in Oracle BMC Console's Compute>>Instances>>Instance Details screen.
-![](./img/dse_ip.png)
+![](../img/dse_ip.png)
 * Similarly, you can cqlsh into your DSE nodes using `% cqlsh <IP address of a DSE node> -u cassandra -p <Cassandra_DB_User_Password>`.
 * When you no longer need the DSE cluster, you can run `% terraform destroy` and follow on-screen instructions to de-provision your DSE cluster.
 

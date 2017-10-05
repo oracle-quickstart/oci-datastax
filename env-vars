@@ -7,12 +7,12 @@
 ### Compartment
 #export TF_VAR_compartment_ocid="<compartment OCID>"
 
-### BMC Region: ex, us-phoenix-1, us-ashburn-1
-export TF_VAR_region="us-phoenix-1"
+### BMC Region: ex, us-phoenix-1
+#export TF_VAR_region="us-phoenix-1"
 #export TF_VAR_region="us-ashburn-1"
 
-### Public/private keys used on the instances
+### Public/private keys used on the instance
 export TF_VAR_ssh_public_key=$(cat /Users/gilbertlau/.ssh/bmc_rsa.pub)
+export TF_VAR_ssh_private_key_path="/Users/gilbertlau/.ssh/bmc_rsa"
 export TF_VAR_ssh_private_key=$(cat /Users/gilbertlau/.ssh/bmc_rsa)
-
 
