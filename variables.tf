@@ -67,6 +67,11 @@ variable "Cassandra_DB_User_Password" {
   default = "datastax1!"
 }
 
+# Collect user provided password for OpsCenter Admin
+variable "OpsCenter_Admin_Password" {
+  default = "opscenter1!"
+}
+
 # DSE cluster deployment topology by availability domain (Phoenix region: PHX)
 variable "DSE_Cluster_Topology_PHX_Region" {
   type = "map"

@@ -8,6 +8,7 @@ host_user_name=$4
 dsa_username=$5
 dsa_password=$6
 db_pwd=$7
+opsc_admin_pwd=$8
 
 # In lcm_opscenter.sh
 echo cluster_name = $cluster_name
@@ -73,5 +74,12 @@ sleep 1m
 ./waitForJobs.py \
 --num $num_dcs \
 --opsc-ip $public_ip
+
+# Alter required keyspaces for multi-DC
+./alterKeyspaces.py
+
+# Update OpsCenter Admin's password
+cd ../opscenter
+./set_opsc_pw_https.sh $opsc_admin_pwd
 
 
