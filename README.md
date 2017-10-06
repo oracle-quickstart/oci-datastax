@@ -73,6 +73,16 @@ variable "DSE_Cluster_Topology_IAD_Region" {
 }
 ```
 You can modify the node count in each availability domain to satisfy your deployment requirements.
+Finally, you can replace our provided custom passwords for Cassandra DB user "cassandra" and OpsCenter "admin" user with your own passwords.
+```
+variable "Cassandra_DB_User_Password" {
+  default = "datastax1!"
+}
+
+variable "OpsCenter_Admin_Password" {
+  default = "opscenter1!"
+}
+```
 * Update \<ssh_private_key_path\> field in `remote-exec.tf` with the absolute path of your SSH private key. For example, `/Users/gilbertlau/.ssh/bmc_rsa`
 * Run `% terraform plan` and follow on-screen instructions to create and review your execution plan.
 * If everything looks good, run `% terraform apply` and follow on-screen instructions to provision your DSE cluster. *Currently the install will automatically create nodes in 3 Availability Domains (AD). The number you would like in each AD is specified by the Num_DSE_Nodes_In_Each_AD variable inside the variables.tf file*.
