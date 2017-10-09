@@ -1,7 +1,7 @@
-# oracle-bmc-terraform-dse [Multiple BMC regions mapping to DSE Datacenters]
-Oracle Bare Metal Cloud Services Terraform-based provisioning for DataStax Enterprise (DSE)
+# oracle-bmc-terraform-dse [OCI regions mapping to DSE Datacenters]
+Oracle Cloud Infrastructure Services Terraform-based provisioning for DataStax Enterprise (DSE)
 
-This asset creates a virtual cloud network with a route table, Internet Gateway, Security Lists, 3 subnets on different availability domains (ADs) for the DataStax Enterprise cluster nodes using NVMe SSDs as data disks and DataStax Enterprise OpsCenter in BMC Phoenix region.  Additionally, it creates the same assets in BMC Ashburn region instead of creating a DataStax Enterprise OpsCenter but connecting to the DataStax Enterprise OpsCenter instance in BMC Phoenix region.
+This asset creates a virtual cloud network with a route table, Internet Gateway, Security Lists, 3 subnets on different availability domains (ADs) for the DataStax Enterprise cluster nodes using NVMe SSDs as data disks and DataStax Enterprise OpsCenter in OCI Phoenix region.  Additionally, it creates the same assets in OCI Ashburn region instead of creating a DataStax Enterprise OpsCenter but connecting to the DataStax Enterprise OpsCenter instance in OCI Phoenix region.
 
 ### Disclaimer
 The use of this repo is intended for development purpose only.  Usage of this repo is solely at user’s own risks.  There is no SLAs around any issues posted on this repo.  Internal prioritization of repo issues will be processed by the owners of this repo periodically.  There is no association with any technical support subscription from DataStax.
@@ -9,22 +9,22 @@ The use of this repo is intended for development purpose only.  Usage of this re
 The use of DataStax software is free in development. Deploying and running DataStax software on a cloud provider will incur costs associated with the underlying cloud provider’s resources such as compute, network and storage, etc.  Please refer to your cloud provider for effective cloud resources pricing.
 
 ### Prerequisites
-* [Follow this link to install Terraform and Oracle BMC Terraform provider (v1.0.14)](https://github.com/oracle/terraform-provider-baremetal/blob/master/README.md)
-* [Follow this link to set up your Oracle BMC's fingerprint for Oracle BMC APIs access](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/apisigningkey.htm)
-* [Follow this link to set up SSH key pair for your Oracle BMC BM or VM instances](https://docs.us-phoenix-1.oraclecloud.com/Content/GSG/Tasks/creatingkeys.htm)
+* [Follow this link to install Terraform and OCI Terraform provider (v2.0.0)](https://github.com/oracle/terraform-provider-baremetal/blob/master/README.md)
+* [Follow this link to set up your OCI's fingerprint for OCI APIs access](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/apisigningkey.htm)
+* [Follow this link to set up SSH key pair for your OCI BM or VM instances](https://docs.us-phoenix-1.oraclecloud.com/Content/GSG/Tasks/creatingkeys.htm)
 
 &nbsp;&nbsp;&nbsp;After following these links you should have completed these tasks:
 * Installed the `terraform` binary for your OS.
-* Installed the `terraform-provider-baremetal` release ([version v1.0.14](https://github.com/oracle/terraform-provider-baremetal/releases/tag/v1.0.14)) and created the ~/.terraformrc file that specifies the path to the baremetal provider.
-* Created an Oracle BMC API Signing Key Pair under ~/.oraclebmc directory.
-* Uploaded the public key from the above pair to Oracle BMC to generate the key's fingerprint.
+* Installed the `terraform-provider-baremetal` release ([version v2.0.0](https://github.com/oracle/terraform-provider-oci/releases/tag/v2.0.0)) and created the ~/.terraformrc file that specifies the path to the baremetal provider.
+* Created an OCI API Signing Key Pair under ~/.oraclebmc directory.
+* Uploaded the public key from the above pair to OCI to generate the key's fingerprint.
 * Created an SSH key pair to be used instead of a password to authenticate a remote user under your ~/.ssh directory.
 
 ### Using this project
-* Run `% git clone https://github.com/DSPN/oracle-bmc-terraform-dse.git` to clone the Oracle BMC DSPN repo.
+* Run `% git clone https://github.com/DSPN/oracle-bmc-terraform-dse.git` to clone the OCI DSPN repo.
 * Run `% cd oracle-bmc-terraform-dse/multi-region` to change to the repo directory.
 * Update env-vars file with the required information.
-  * From your Oracle BMC account
+  * From your OCI account
     * TF_VAR_tenancy_ocid
     * TF_VAR_user_ocid
     * TF_VAR_fingerprint
@@ -48,7 +48,7 @@ variable "DataStax_Academy_Creds" {
   }
 }
 ```
-The default configuration will provision a DSE cluster with 3 nodes in Phoenix region and 3 nodes in Ashburn region with one node in each availability domain (AD) defined below.  For instance, AD1_Count inside DSE_Cluster_Topology_PHX_Region map variable represents node count in availability domain 1 of Phoenix region namely, FcAL:PHX-AD-1. Each BMC region is mapped to a DSE datacenter construct.
+The default configuration will provision a DSE cluster with 3 nodes in Phoenix region and 3 nodes in Ashburn region with one node in each availability domain (AD) defined below.  For instance, AD1_Count inside DSE_Cluster_Topology_PHX_Region map variable represents node count in availability domain 1 of Phoenix region namely, FcAL:PHX-AD-1. Each OCI region is mapped to a DSE datacenter construct.
 ```
 # DSE cluster deployment topology by availability domain (Phoenix region: PHX)
 variable "DSE_Cluster_Topology_PHX_Region" {
@@ -90,7 +90,7 @@ variable "OpsCenter_Admin_Password" {
 ![](./img/terraform_apply.png)
 * The time taken to deploy the default DSE cluster configuraiton is roughly 20 minutes long. Once complete, you can point your browser at http://<OpsCenter_URL> to access DataStax Enterprise OpsCenter to start managing your DSE cluster.
 ![](./img/opsc_dashboard.png)
-* You can also SSH into the any of the DSE nodes using this command: `% ssh -i <path to your SSH private key> opc@<IP address of a DSE node>`.  You can locate the IP address of your DSE node in Oracle BMC Console's Compute>>Instances>>Instance Details screen.
+* You can also SSH into the any of the DSE nodes using this command: `% ssh -i <path to your SSH private key> opc@<IP address of a DSE node>`.  You can locate the IP address of your DSE node in OCI Console's Compute>>Instances>>Instance Details screen.
 ![](./img/dse_ip.png)
 * Similarly, you can cqlsh into your DSE nodes using `% cqlsh <IP address of a DSE node> -u cassandra -p <Cassandra_DB_User_Password>`.
 * When you no longer need the DSE cluster, you can run `% terraform destroy` and follow on-screen instructions to de-provision your DSE cluster.
