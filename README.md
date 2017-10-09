@@ -22,14 +22,13 @@ The use of DataStax software is free in development. Deploying and running DataS
 
 ### Using this project
 * Run `% git clone https://github.com/DSPN/oracle-bmc-terraform-dse.git` to clone the OCI DSPN repo.
-* Run `% cd oracle-bmc-terraform-dse/multi-region` to change to the repo directory.
+* Run `% cd oracle-bmc-terraform-dse` to change to the repo directory.
 * Update env-vars file with the required information.
   * From your OCI account
     * TF_VAR_tenancy_ocid
     * TF_VAR_user_ocid
     * TF_VAR_fingerprint
     * TF_VAR_private_key_path
-    * TF_VAR_region
   * From your local file system
     * TF_VAR_ssh_public_key
     * TF_VAR_ssh_private_key
@@ -85,10 +84,11 @@ variable "OpsCenter_Admin_Password" {
 ```
 * Update \<ssh_private_key_path\> field in `remote-exec.tf` with the absolute path of your SSH private key. For example, `/Users/gilbertlau/.ssh/bmc_rsa`
 * Run `% terraform plan` and follow on-screen instructions to create and review your execution plan.
-* If everything looks good, run `% terraform apply` and follow on-screen instructions to provision your DSE cluster. *Currently the install will automatically create nodes in 3 Availability Domains (AD). The number you would like in each AD is specified by the Num_DSE_Nodes_In_Each_AD variable inside the variables.tf file*.
+* If everything looks good, run `% terraform apply` and follow on-screen instructions to provision your DSE cluster. 
 * If it runs successfully, you will see the following output from the command line.
 ![](./img/terraform_apply.png)
-* The time taken to deploy the default DSE cluster configuraiton is roughly 20 minutes long. Once complete, you can point your browser at http://<OpsCenter_URL> to access DataStax Enterprise OpsCenter to start managing your DSE cluster.
+* The time taken to deploy the default DSE cluster configuraiton is roughly 20 minutes long. Once complete, you can point your web browser to https://<OpsCenter_URL> and log into OpsCenter using "admin" as Username and the value of OpsCenter_Admin_Password as the Password. *The OpsCenter instance uses a self-signed SSL certificate, so you will need to accept the certificate exception before you can see the OpsCenter's login page.*
+![](./img/opsc_login.png)
 ![](./img/opsc_dashboard.png)
 * You can also SSH into the any of the DSE nodes using this command: `% ssh -i <path to your SSH private key> opc@<IP address of a DSE node>`.  You can locate the IP address of your DSE node in OCI Console's Compute>>Instances>>Instance Details screen.
 ![](./img/dse_ip.png)
