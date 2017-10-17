@@ -8,6 +8,9 @@ The use of this repo is intended for development purpose only.  Usage of this re
 
 The use of DataStax software is free in development. Deploying and running DataStax software on a cloud provider will incur costs associated with the underlying cloud provider’s resources such as compute, network and storage, etc.  Please refer to your cloud provider for effective cloud resources pricing.
 
+### Licensing terms
+This OCI Terraform solution to provision DataStax Enterprise includes a limited no-fee license from DataStax. As described in section 1.4 of [DataStax Enterprise Terms](https://www.datastax.com/enterprise-terms), the limited license is for development or non-production use. If you want to deploy DataStax Enterprise on OCI for production, you’ll need to acquire a DataStax subscription license. To discuss licensing for production, please contact sales@datastax.com.
+
 ### Prerequisites
 * [Follow this link to install Terraform and OCI Terraform provider (v2.0.0)](https://github.com/oracle/terraform-provider-baremetal/blob/master/README.md)
 * [Follow this link to set up your OCI's fingerprint for OCI APIs access](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/apisigningkey.htm)
