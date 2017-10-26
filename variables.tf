@@ -15,11 +15,11 @@ variable "regions" {
 }
 
 variable "InstanceOS" {
-    default = "Oracle Linux"
+    default = "CentOS"
 }
 
 variable "InstanceOSVersion" {
-    default = "7.3"
+    default = "7"
 }
 
 variable "DSE_Shape" {

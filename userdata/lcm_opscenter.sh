@@ -36,12 +36,13 @@ unzip master.zip
 cd install-datastax-redhat-master/bin/
 ./os/install_java.sh
 ./opscenter/install.sh
+./opscenter/configure_opscenterd_conf.sh
 ./opscenter/start.sh
 
 
 ## Set up cluster in OpsCenter the LCM way
 cd ~opc
-release="6.0.0"
+release="6.0.1"
 wget https://github.com/DSPN/install-datastax-ubuntu/archive/$release.zip
 unzip $release.zip
 cd install-datastax-ubuntu-$release/bin/lcm/

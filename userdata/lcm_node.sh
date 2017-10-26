@@ -47,7 +47,7 @@ node_id=$private_ip
 rack="rack1"
 
 cd ~opc
-release="6.0.0"
+release="6.0.1"
 wget https://github.com/DSPN/install-datastax-ubuntu/archive/$release.zip
 unzip $release.zip
 cd install-datastax-ubuntu-$release/bin/lcm/
