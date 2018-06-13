@@ -28,7 +28,7 @@ pip install requests
 
 ## Install OpsCenter
 cd ~opc
-release="6.0.4"
+release="6.0.5"
 wget https://github.com/DSPN/install-datastax-redhat/archive/$release.zip
 unzip $release.zip
 cd install-datastax-redhat-$release/bin/
