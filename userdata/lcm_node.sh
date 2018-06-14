@@ -28,6 +28,7 @@ lvcreate --name lv --size 5.8T vg-nvme
 mkfs.ext4 /dev/vg-nvme/lv
 mkdir /mnt/data1
 mount /dev/vg-nvme/lv /mnt/data1
+echo "/dev/vg-nvme/lv /mnt/data1 ext4 discard,defaults 0 2" | tee -a /etc/fstab
 mkdir -p /mnt/data1/data
 mkdir -p /mnt/data1/saved_caches
 mkdir -p /mnt/data1/commitlog
