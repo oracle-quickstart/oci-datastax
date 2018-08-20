@@ -113,4 +113,6 @@ You can also SSH into the any of the DSE nodes using this command: `% ssh -i <pa
 Similarly, you can cqlsh into your DSE nodes using `% cqlsh <IP address of a DSE node> -u cassandra -p <Cassandra_DB_User_Password>`.
 
 ## Destroy the Deployment
-When you no longer need the DSE cluster, you can run `% terraform destroy` and follow on-screen instructions to de-provision your DSE cluster.
+When you no longer need the DSE cluster, you can run this to delete the deployment:
+
+    terraform destroy
