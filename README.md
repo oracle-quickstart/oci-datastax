@@ -48,21 +48,9 @@ This gives the following output:
 * Uploaded the public key from the above pair to OCI to generate the key's fingerprint.
 * Created an SSH key pair to be used instead of a password to authenticate a remote user under your ~/.ssh directory.
 
-Update the `env-vars.sh` file:
+Now, update the `env-vars` file.  When you've set all the variables, source the file with the command:
 
-From your OCI account:
-* TF_VAR_tenancy_ocid
-* TF_VAR_user_ocid
-* TF_VAR_fingerprint
-* TF_VAR_private_key_path
-
-From your local file system:
-* TF_VAR_ssh_public_key
-* TF_VAR_ssh_private_key
-
-Now run the script to set those variables:
-
-    env-vars.sh
+    source env-vars
 
 ## Deploy
 Update `\<ssh_private_key_path\>` field in `remote-exec.tf` with the absolute path of your SSH private key. For example, `/Users/gilbertlau/.ssh/bmc_rsa`
