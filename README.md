@@ -10,19 +10,22 @@ Next you're going to need to install the [Terraform Provider for Oracle Cloud In
 
 ![](./img/2%20-%20provider.png)
 
+## Clone the Module
+Now you'll want a local copy of this repo.  You can make that with the commands:
+
+    git clone https://github.com/benofben/oci-terraform-dse.git
+    cd oci-terraform-dse/simple
+    ls
+
+![](./img/3%20-%20git%20clone.png)
+
+## Setup Keys
+
 * [Set up your OCI's fingerprint for OCI APIs access](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/apisigningkey.htm)
 * [Set up SSH key pair for your OCI BM or VM instances](https://docs.us-phoenix-1.oraclecloud.com/Content/GSG/Tasks/creatingkeys.htm)
 * Created an OCI API Signing Key Pair under ~/.oraclebmc directory.
 * Uploaded the public key from the above pair to OCI to generate the key's fingerprint.
 * Created an SSH key pair to be used instead of a password to authenticate a remote user under your ~/.ssh directory.
-
-Now you'll want a local copy of this repo.  You can make that with the commands:
-
-    git clone https://github.com/benofben/oci-terraform-dse.git
-    cd oci-terraform-dse
-    ls
-
-![](./img/3%20-%20git%20clone.png)
 
 ## Deploy
 Update env-vars file with the required information:
