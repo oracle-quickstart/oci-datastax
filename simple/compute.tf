@@ -13,9 +13,8 @@ resource "oci_core_instance" "DSE_OPSC" {
   metadata {
     ssh_authorized_keys = "${var.ssh_public_key}"
 
-    user_data = "${base64encode(format("%s\n%s %s %s %s %s %s %s %s %s\n",
-           file(var.OPSC_BootStrap),
-           "./lcm_opscenter.sh",
+    user_data = "${base64encode(format("%s %s %s %s %s %s %s %s %s\n",
+           "./opscenter.sh",
            "${var.DSE_Cluster_Name}",
            "${var.DSE_Cluster_Topology_PHX_Region["AD1_Count"] +
               var.DSE_Cluster_Topology_PHX_Region["AD2_Count"] +
@@ -48,9 +47,8 @@ resource "oci_core_instance" "DSE_Node_PHX_0" {
   metadata {
     ssh_authorized_keys = "${var.ssh_public_key}"
 
-    user_data = "${base64encode(format("%s\n%s %s %s %s\n",
-           file(var.DSE_BootStrap),
-           "./lcm_node.sh",
+    user_data = "${base64encode(format("%s %s %s %s\n",
+           "./node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
            "${var.DSE_Cluster_Name}",
            "us-phoenix-1"
@@ -73,9 +71,8 @@ resource "oci_core_instance" "DSE_Node_PHX_1" {
   metadata {
     ssh_authorized_keys = "${var.ssh_public_key}"
 
-    user_data = "${base64encode(format("%s\n%s %s %s %s\n",
-           file(var.DSE_BootStrap),
-           "./lcm_node.sh",
+    user_data = "${base64encode(format("%s %s %s %s\n",
+           "./node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
            "${var.DSE_Cluster_Name}",
            "us-phoenix-1"
@@ -98,9 +95,8 @@ resource "oci_core_instance" "DSE_Node_PHX_2" {
   metadata {
     ssh_authorized_keys = "${var.ssh_public_key}"
 
-    user_data = "${base64encode(format("%s\n%s %s %s %s\n",
-           file(var.DSE_BootStrap),
-           "./lcm_node.sh",
+    user_data = "${base64encode(format("%s %s %s %s\n",
+           "./node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
            "${var.DSE_Cluster_Name}",
            "us-phoenix-1"
@@ -125,9 +121,8 @@ resource "oci_core_instance" "DSE_Node_IAD_0" {
   metadata {
     ssh_authorized_keys = "${var.ssh_public_key}"
 
-    user_data = "${base64encode(format("%s\n%s %s %s %s\n",
-           file(var.DSE_BootStrap),
-           "./lcm_node.sh",
+    user_data = "${base64encode(format("%s %s %s %s\n",
+           "./node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
            "${var.DSE_Cluster_Name}",
            "us-ashburn-1"
@@ -150,9 +145,8 @@ resource "oci_core_instance" "DSE_Node_IAD_1" {
   metadata {
     ssh_authorized_keys = "${var.ssh_public_key}"
 
-    user_data = "${base64encode(format("%s\n%s %s %s %s\n",
-           file(var.DSE_BootStrap),
-           "./lcm_node.sh",
+    user_data = "${base64encode(format("%s %s %s %s\n",
+           "./node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
            "${var.DSE_Cluster_Name}",
            "us-ashburn-1"
@@ -175,9 +169,8 @@ resource "oci_core_instance" "DSE_Node_IAD_2" {
   metadata {
     ssh_authorized_keys = "${var.ssh_public_key}"
 
-    user_data = "${base64encode(format("%s\n%s %s %s %s\n",
-           file(var.DSE_BootStrap),
-           "./lcm_node.sh",
+    user_data = "${base64encode(format("%s %s %s %s\n",
+           "./node.sh",
            "${data.oci_core_vnic.DSE_OPSC_Vnic.public_ip_address}",
            "${var.DSE_Cluster_Name}",
            "us-ashburn-1"

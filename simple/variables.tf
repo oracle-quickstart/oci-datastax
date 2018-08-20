@@ -38,15 +38,6 @@ variable "host_user_name" {
   default = "opc"
 }
 
-variable "OPSC_BootStrap" {
-  default = "./userdata/lcm_opscenter_userdata.sh"
-}
-
-variable "DSE_BootStrap" {
-  default = "./userdata/lcm_node_userdata.sh"
-}
-
-# DSE cluster name
 variable "DSE_Cluster_Name" {
   default = "mycluster"
 }
