@@ -4,11 +4,11 @@ This Terraform module deploys a DataStax Enterprise (DSE) cluster to Oracle Clou
 ## Prerequisites
 First off, we need to install Terraform.  Instructions on that are [here](https://www.terraform.io/intro/getting-started/install.html).  You can test that Terraform is properly installed by running `terraform`:
 
-![](./img/1 - terraform.png)
+![](./img/1%20-%20terraform.png)
 
 Next you're going to need to install the [Terraform Provider for Oracle Cloud Infrastructure](https://github.com/oracle/terraform-provider-baremetal/blob/master/README.md).  I'm on a Mac, so I downloaded a copy of the binary, `darwin_amd64.tar.gz` from [here](https://github.com/oracle/terraform-provider-oci/releases) and put it in a new plugins directory:
 
-![](./img/2 - provider.png)
+![](./img/2%20-%20provider.png)
 
 * [Set up your OCI's fingerprint for OCI APIs access](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/apisigningkey.htm)
 * [Set up SSH key pair for your OCI BM or VM instances](https://docs.us-phoenix-1.oraclecloud.com/Content/GSG/Tasks/creatingkeys.htm)
@@ -22,7 +22,7 @@ Now you'll want a local copy of this repo.  You can make that with the commands:
     cd oci-terraform-dse
     ls
 
-![](./img/3 - git clone.png)
+![](./img/3%20-%20git%20clone.png)
 
 ## Deploy
 Update env-vars file with the required information:
