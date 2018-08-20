@@ -2,22 +2,29 @@
 This Terraform module deploys a DataStax Enterprise (DSE) cluster to Oracle Cloud Infrastructure (OCI).
 
 ## Prerequisites
-* [Install Terraform and OCI Terraform provider (v2.0.0)](https://github.com/oracle/terraform-provider-baremetal/blob/master/README.md)
+First off, we need to install Terraform.  Instructions on that are [here](https://www.terraform.io/intro/getting-started/install.html).  You can test that Terraform is properly installed by running `terraform`:
+
+![](./img/1 - terraform.png)
+
+Next you're going to need to install the [Terraform Provider for Oracle Cloud Infrastructure](https://github.com/oracle/terraform-provider-baremetal/blob/master/README.md).  I'm on a Mac, so I downloaded a copy of the binary, `darwin_amd64.tar.gz` from [here](https://github.com/oracle/terraform-provider-oci/releases) and put it in a new plugins directory:
+
+![](./img/2 - provider.png)
+
 * [Set up your OCI's fingerprint for OCI APIs access](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/apisigningkey.htm)
 * [Set up SSH key pair for your OCI BM or VM instances](https://docs.us-phoenix-1.oraclecloud.com/Content/GSG/Tasks/creatingkeys.htm)
-
-After following these links you should have completed these tasks:
-* Installed the `terraform` binary for your OS.
-* Installed the `terraform-provider-baremetal` release ([version v2.0.0](https://github.com/oracle/terraform-provider-oci/releases/tag/v2.0.0)) and created the ~/.terraformrc file that specifies the path to the baremetal provider.
 * Created an OCI API Signing Key Pair under ~/.oraclebmc directory.
 * Uploaded the public key from the above pair to OCI to generate the key's fingerprint.
 * Created an SSH key pair to be used instead of a password to authenticate a remote user under your ~/.ssh directory.
 
+Now you'll want a local copy of this repo.  You can make that with the commands:
+
+    git clone https://github.com/benofben/oci-terraform-dse.git
+    cd oci-terraform-dse
+    ls
+
+![](./img/3 - git clone.png)
+
 ## Deploy
-Run `% git clone https://github.com/DSPN/oracle-bmc-terraform-dse.git` to clone the OCI DSPN repo.
-
-Run `% cd oracle-bmc-terraform-dse` to change to the repo directory.
-
 Update env-vars file with the required information:
 
 From your OCI account
