@@ -2,7 +2,11 @@
 This Terraform module deploys a DataStax Enterprise (DSE) cluster to Oracle Cloud Infrastructure (OCI).
 
 ## Install Terraform and the OCI Provider
-First off, we need to install Terraform.  Instructions on that are [here](https://www.terraform.io/intro/getting-started/install.html).  You can test that Terraform is properly installed by running `terraform`:
+First off, we need to install Terraform.  Instructions on that are [here](https://www.terraform.io/intro/getting-started/install.html).  You can test that Terraform is properly installed by running:
+
+    terraform
+
+This gives the output:
 
 ![](../img/1%20-%20terraform.png)
 
