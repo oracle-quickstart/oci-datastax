@@ -42,11 +42,9 @@ This gives the following output:
 
 
 ## Setup Keys and Environment Variables
-* [Set up your OCI's fingerprint for OCI APIs access](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/apisigningkey.htm)
-* [Set up SSH key pair for your OCI BM or VM instances](https://docs.us-phoenix-1.oraclecloud.com/Content/GSG/Tasks/creatingkeys.htm)
-* Created an OCI API Signing Key Pair under ~/.oraclebmc directory.
-* Uploaded the public key from the above pair to OCI to generate the key's fingerprint.
-* Created an SSH key pair to be used instead of a password to authenticate a remote user under your ~/.ssh directory.
+Create a key for OCI API access by following the instructions [here](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/apisigningkey.htm).
+
+Create an SSH keypair for connecting to VM instances by follow [these instructions](https://docs.us-phoenix-1.oraclecloud.com/Content/GSG/Tasks/creatingkeys.htm).
 
 Now, update the `env-vars` file.  When you've set all the variables, source the file with the command:
 
