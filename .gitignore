@@ -1,3 +1,3 @@
 .DS_Store
 .terraform
-simple/env-vars.sh
+env-vars.sh
