@@ -11,4 +11,3 @@ output "OpsCenter_Admin_Password" {
 output "Cassandra_DB_User_Password" {
   value = ["${var.Cassandra_DB_User_Password}"]
 }
-

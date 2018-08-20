@@ -1,3 +1,5 @@
+#!/bin/sh
+
 ### Authentication details
 #export TF_VAR_tenancy_ocid="<tenancy OCID"
 #export TF_VAR_user_ocid="<user OCID>"
@@ -15,4 +17,3 @@
 export TF_VAR_ssh_public_key=$(cat /Users/gilbertlau/.ssh/bmc_rsa.pub)
 export TF_VAR_ssh_private_key_path="/Users/gilbertlau/.ssh/bmc_rsa"
 export TF_VAR_ssh_private_key=$(cat /Users/gilbertlau/.ssh/bmc_rsa)
-

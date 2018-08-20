@@ -11,45 +11,44 @@ variable "ssh_public_key" {}
 variable "ssh_private_key" {}
 
 variable "regions" {
-    default = ["us-phoenix-1", "us-ashburn-1"]
+  default = ["us-phoenix-1", "us-ashburn-1"]
 }
 
 variable "InstanceOS" {
-    default = "CentOS"
+  default = "CentOS"
 }
 
 variable "InstanceOSVersion" {
-    default = "7"
+  default = "7"
 }
 
 variable "DSE_Shape" {
-    default = "VM.DenseIO1.8"
-#   default = "VM.DenseIO1.16"
+  default = "VM.DenseIO1.8"
 }
 
 variable "OPSC_Shape" {
-    default = "VM.Standard1.4"
+  default = "VM.Standard1.4"
 }
 
 variable "2TB" {
-    default = "2097152"
+  default = "2097152"
 }
 
 variable "host_user_name" {
-    default = "opc"
+  default = "opc"
 }
 
 variable "OPSC_BootStrap" {
-    default = "./userdata/lcm_opscenter_userdata.sh"
+  default = "./userdata/lcm_opscenter_userdata.sh"
 }
 
 variable "DSE_BootStrap" {
-    default = "./userdata/lcm_node_userdata.sh"
+  default = "./userdata/lcm_node_userdata.sh"
 }
 
 # DSE cluster name
 variable "DSE_Cluster_Name" {
-   default = "mycluster"
+  default = "mycluster"
 }
 
 # DataStax Academy Credentials for DSE software download
@@ -93,5 +92,3 @@ variable "DSE_Cluster_Topology_IAD_Region" {
     AD3_Count = "1"
   }
 }
-
-
