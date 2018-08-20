@@ -1,4 +1,4 @@
-#oci-terraform-dse/simple
+# oci-terraform-dse/simple
 This Terraform module deploys a DataStax Enterprise (DSE) cluster to Oracle Cloud Infrastructure (OCI).
 
 ## Install Terraform and the OCI Provider
