@@ -42,10 +42,8 @@ variable "DSE_Cluster_Name" {
   default = "mycluster"
 }
 
-# DataStax Academy Credentials for DSE software download
 variable "DataStax_Academy_Creds" {
   type = "map"
-
   default = {
     username = "datastax@oracle.com"
     password = "*9En9HH4j^p4"
