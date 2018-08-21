@@ -26,8 +26,8 @@ That gave this output:
 ## Clone the Module
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
-    git clone https://github.com/benofben/oci-terraform-dse.git
-    cd oci-terraform-dse/simple
+    git clone https://github.com/benofben/oci-datastax.git
+    cd oci-datastax/simple
     ls
 
 ![](./img/3%20-%20git%20clone.png)
