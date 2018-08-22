@@ -1,6 +1,3 @@
-# Datasource resources
-
-# Gets a list of Availability Domains
 data "oci_identity_availability_domains" "PHX_ADs" {
   provider       = "oci.phx"
   compartment_id = "${var.tenancy_ocid}"
@@ -11,22 +8,13 @@ data "oci_identity_availability_domains" "IAD_ADs" {
   compartment_id = "${var.tenancy_ocid}"
 }
 
-# Gets the OCID of the OS image to use
 data "oci_core_images" "OLImageOCID_PHX" {
-  provider                 = "oci.phx"
+  provider                 = "oci"
   compartment_id           = "${var.compartment_ocid}"
-  operating_system         = "${var.InstanceOS}"
-  operating_system_version = "${var.InstanceOSVersion}"
+  operating_system         = "CentOS"
+  operating_system_version = "7"
 }
 
-data "oci_core_images" "OLImageOCID_IAD" {
-  provider                 = "oci.iad"
-  compartment_id           = "${var.compartment_ocid}"
-  operating_system         = "${var.InstanceOS}"
-  operating_system_version = "${var.InstanceOSVersion}"
-}
-
-# Gets a list of vNIC attachments on DSE_OPSC
 data "oci_core_vnic_attachments" "DSE_OPSC_Vnics" {
   provider            = "oci.phx"
   compartment_id      = "${var.compartment_ocid}"

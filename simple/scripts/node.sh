@@ -15,11 +15,12 @@ service firewalld stop
 chkconfig firewalld off
 
 ##### Mount disks
-# Install LVM software:
+
+# Install LVM
 yum -y update
 yum -y install lvm2 dmsetup mdadm reiserfsprogs xfsprogs
 
-# Create disk partitions for LVM:
+# Create disk partitions for LVM
 pvcreate /dev/nvme0n1 /dev/nvme1n1
 
 # Create volume group upon disk partitions:
@@ -34,7 +35,7 @@ mkdir -p /mnt/data1/saved_caches
 mkdir -p /mnt/data1/commitlog
 chmod -R 777 /mnt/data1
 
-##### Install DSE the LCM way
+##### Install DSE
 yum -y install unzip wget
 wget http://mirror.centos.org/centos/7/extras/x86_64/Packages/epel-release-7-9.noarch.rpm
 rpm -ivh epel-release-7-9.noarch.rpm
