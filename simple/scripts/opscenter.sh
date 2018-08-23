@@ -3,10 +3,10 @@
 # Collect input param
 cluster_name=$1
 cluster_size=$2
-num_dcs=$3 
-host_user_name=$4
-dsa_username=$5
-dsa_password=$6
+num_dcs=$3
+host_user_name="opc"
+dsa_username="datastax@oracle.com"
+dsa_password="*9En9HH4j^p4"
 db_pwd=$7
 opsc_admin_pwd=$8
 
@@ -80,5 +80,3 @@ sleep 1m
 # Update OpsCenter Admin's password
 cd ../opscenter
 ./set_opsc_pw_https.sh $opsc_admin_pwd
-
-

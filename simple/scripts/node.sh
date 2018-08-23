@@ -15,15 +15,16 @@ service firewalld stop
 chkconfig firewalld off
 
 ##### Mount disks
-# Install LVM software:
+
+# Install LVM
 yum -y update
 yum -y install lvm2 dmsetup mdadm reiserfsprogs xfsprogs
 
-# Create disk partitions for LVM:
-pvcreate /dev/nvme0n1 /dev/nvme1n1 
+# Create disk partitions for LVM
+pvcreate /dev/nvme0n1 /dev/nvme1n1
 
 # Create volume group upon disk partitions:
-vgcreate vg-nvme /dev/nvme0n1 /dev/nvme1n1 
+vgcreate vg-nvme /dev/nvme0n1 /dev/nvme1n1
 lvcreate --name lv --size 5.8T vg-nvme
 mkfs.ext4 /dev/vg-nvme/lv
 mkdir /mnt/data1
@@ -34,9 +35,8 @@ mkdir -p /mnt/data1/saved_caches
 mkdir -p /mnt/data1/commitlog
 chmod -R 777 /mnt/data1
 
-##### Install DSE the LCM way 
+##### Install DSE
 yum -y install unzip wget
-#wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
 wget http://mirror.centos.org/centos/7/extras/x86_64/Packages/epel-release-7-9.noarch.rpm
 rpm -ivh epel-release-7-9.noarch.rpm
 yum -y install python-pip
