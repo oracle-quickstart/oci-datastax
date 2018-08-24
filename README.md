@@ -1,54 +1,25 @@
 # oci-terraform-dse
 [simple](simple) is a Terraform module that will deploy DSE on OCI.  Instructions on how to use it are below.  Best practices are detailed in [this document](bestpractices.md).
 
-## Install Terraform and the OCI Provider
-First off, we need to install Terraform.  Instructions on that are [here](https://www.terraform.io/intro/getting-started/install.html).  You can test that Terraform is properly installed by running:
-
-    terraform
-
-This gives the output:
-
-![](./img/1%20-%20terraform.png)
-
-Next you're going to need to install the [Terraform Provider for Oracle Cloud Infrastructure](https://github.com/oracle/terraform-provider-baremetal/blob/master/README.md).  I'm on a Mac, so I downloaded a copy of the binary, `darwin_amd64.tar.gz` from [here](https://github.com/oracle/terraform-provider-oci/releases) and put it in a new plugins directory.  To do that, I ran the follow commands:
-
-    tar -xvf darwin_amd64.tar.gz
-    cd ~/.terraform.d
-    mkdir plugins
-    cd plugins
-    mv ~/Downloads/darwin_amd64/terraform-provider-oci_v2.2.0 ./
-    ls
-
-That gave this output:
-
-![](./img/2%20-%20provider.png)
+# Prerequisites
+First off you'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/cloud-partners/oci-prerequisites).
 
 ## Clone the Module
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
-    git clone https://github.com/benofben/oci-datastax.git
+    git clone https://github.com/cloud-partners/oci-datastax.git
     cd oci-datastax/simple
     ls
 
-![](./img/3%20-%20git%20clone.png)
+![](./images/1%20-%20git%20clone.png)
 
-With the provider installed and the repo cloned, we now need to initialize the directory with the module in it.  This makes the module aware of the provider.  You can do this by running:
+We now need to initialize the directory with the module in it.  This makes the module aware of the OCI provider.  You can do this by running:
 
     terraform init
 
 This gives the following output:
 
-![](./img/4%20-%20terraform%20init.png)
-
-
-## Setup Keys and Environment Variables
-Create a key for OCI API access by following the instructions [here](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/apisigningkey.htm).
-
-Create an SSH keypair for connecting to VM instances by follow [these instructions](https://docs.us-phoenix-1.oraclecloud.com/Content/GSG/Tasks/creatingkeys.htm).
-
-Now, update the `env-vars` file.  When you've set all the variables, source the file with the command:
-
-    source env-vars
+![](./images/2%20-%20terraform%20init.png)
 
 ## Deploy
 Update `\<ssh_private_key_path\>` field in `remote-exec.tf` with the absolute path of your SSH private key. For example, `/Users/gilbertlau/.ssh/bmc_rsa`
