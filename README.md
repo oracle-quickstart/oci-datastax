@@ -34,11 +34,11 @@ If everything looks good, you can run it for real with the command:
 
 Assuming everything works, you'll see something like this:
 
-![](./img/terraform_apply.png)
+![](./images/terraform_apply.png)
 
 The time taken to deploy the default DSE cluster configuration is roughly 20 minutes long. Once complete, you can point your web browser to `https://<OpsCenter_URL>` and log into OpsCenter using `admin` as Username and the value of OpsCenter_Admin_Password as the Password. The OpsCenter instance uses a self-signed SSL certificate, so you will need to accept the certificate exception before you can see the OpsCenter's login page.
 
-![](./img/opsc_login.png)
+![](./images/opsc_login.png)
 
 ![](./img/opsc_dashboard.png)
 
@@ -48,7 +48,7 @@ You can SSH into the any of the DSE nodes using this command:
 
 The IP address of your DSE node in OCI Console is under Compute >> Instances >> Instance Details.
 
-![](./img/dse_ip.png)
+![](./images/dse_ip.png)
 
 You can cqlsh into your DSE nodes using
 
