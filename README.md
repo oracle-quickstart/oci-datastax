@@ -24,41 +24,44 @@ This gives the following output:
 ![](./images/2%20-%20terraform%20init.png)
 
 ## Deploy
-Update `\<ssh_private_key_path\>` field in `remote-exec.tf` with the absolute path of your SSH private key. For example, `/Users/gilbertlau/.ssh/bmc_rsa`
-
-You can test the deployment by running:
+Now for the main attraction.  Let's make sure the plan looks good:
 
     terraform plan
 
-If everything looks good, you can run it for real with the command:
+That gives:
+
+![](./images/03%20-%20terraform%20plan.png)
+
+If that's good, we can go ahead and apply the deploy:
 
     terraform apply
 
-Assuming everything works, you'll see something like this:
+You'll need to enter `yes` when prompted.  The apply should take about five minutes to run.  Once complete, you'll see something like this:
 
-![](./images/terraform_apply.png)
+![](./images/04%20-%20terraform%20apply.png)
 
-The time taken to deploy the default DSE cluster configuration is roughly 20 minutes long. Once complete, you can point your web browser to `https://<OpsCenter_URL>` and log into OpsCenter using `admin` as Username and the value of OpsCenter_Admin_Password as the Password. The OpsCenter instance uses a self-signed SSL certificate, so you will need to accept the certificate exception before you can see the OpsCenter's login page.
+When the apply is complete, the infrastructure will be deployed, but cloud-init scripts will still be running.  Those will wrap up asynchronously.  So, it'll be a few more minutes before your cluster is accessible.  Now is a good time to get a coffee.
 
-![](./images/opsc_login.png)
+## Connect to the Cluster
+When the `terraform apply` completed, it printed out the URL of OpsCenter.  Let's login and take a look...
 
-![](./img/opsc_dashboard.png)
+## SSH to a Node
+These machines are using Red Hat Enterprise Linux (RHEL).  The default login is opc.  You can SSH into the machine with a command like this:
 
-You can SSH into the any of the DSE nodes using this command:
+    ssh -i ~/.ssh/oci opc@<Public IP Address>
 
-    ssh -i <path to your SSH private key> opc@<IP address of a DSE node>
+DSE is installed under `/opt/???/bin`.  You can debug deployments by investigating the cloud-init log file `/var/log/messages`.  You'll need to `sudo su` to be able to read it.
 
-The IP address of your DSE node in OCI Console is under Compute >> Instances >> Instance Details.
+## View the Cluster in the Console
+You can also login to the web console [here](https://console.us-phoenix-1.oraclecloud.com/a/compute/instances) to view the IaaS that is running the cluster.
 
-![](./images/dse_ip.png)
-
-You can cqlsh into your DSE nodes using
-
-    cqlsh <IP address of a DSE node> \
-      -u cassandra \
-      -p <Cassandra_DB_User_Password>
+![](./images/09%20-%20console.png)
 
 ## Destroy the Deployment
 When you no longer need the DSE cluster, you can run this to delete the deployment:
 
     terraform destroy
+
+You'll need to enter `yes` when prompted.  Once complete, you'll see something like this:
+
+    ![](./images/10%20-%20terraform%20destroy.png)
