@@ -15,7 +15,7 @@ service firewalld stop
 chkconfig firewalld off
 
 #######################################################"
-###################### Install DSE ####################"
+##################### Configure DSE ###################"
 #######################################################"
 release="7.1.0"
 wget https://github.com/DSPN/install-datastax-ubuntu/archive/$release.tar.gz
