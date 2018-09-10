@@ -27,18 +27,25 @@ cd install-datastax-ubuntu-$release/bin/
 ./os/extra_packages.sh
 ./os/install_java.sh -o
 
-opscfqdn=""
-private_ip=`echo $(hostname -I)`
-public_ip=`curl --retry 10 icanhazip.com`
+opscenterDNS="opscenter.datastax.datastax.oraclevcn.com"
+nodeID=$(hostname)
+privateDNS=$nodeID + ".datastax.datastax.oraclevcn.com"
+publicIP=`curl --retry 10 icanhazip.com`
+
+echo "Using the settings:"
+echo opscenterDNS \'$opscenterDNS\'
+echo nodeID \'$nodeID\'
+echo privateDNS \'$privateDNS\'
+echo publicIP \'$publicIP\'
 
 ./lcm/addNode.py \
---opsc-ip $opscfqdn \
+--opsc-ip $opscenterDNS \
 --opscpw $password \
 --trys 120 \
 --pause 10 \
 --clustername "mycluster" \
 --dcname "dc1" \
 --rack "rack1" \
---pubip $public_ip \
---privip $private_ip \
---nodeid $private_ip
+--pubip $publicIP \
+--privip $privateDNS \
+--nodeid $nodeID

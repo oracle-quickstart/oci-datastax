@@ -40,11 +40,9 @@ cd install-datastax-ubuntu-$release/bin
 ./opscenter/set_opsc_pw_https.sh $password
 sleep 1m
 
-cluster_name="mycluster"
-
 ./lcm/setupCluster.py \
 --opscpw $password \
---clustername $cluster_name \
+--clustername "mycluster" \
 --repouser "datastax@oracle.com" \
 --repopw "*9En9HH4j^p4" \
 --dsever  $version \
@@ -58,7 +56,7 @@ cluster_name="mycluster"
 # trigger install
 ./lcm/triggerInstall.py \
 --opscpw $password \
---clustername $cluster_name \
+--clustername "mycluster" \
 --clustersize $nodecount \
 --pause 10 \
 --trys 400
