@@ -45,8 +45,10 @@ When the apply is complete, the infrastructure will be deployed, but cloud-init 
 ## Connect to the Cluster
 When the `terraform apply` completed, it printed out the URL of OpsCenter.  Let's login and take a look...
 
+![](./images/04%20-%20terraform%20apply.png)
+
 ## SSH to a Node
-These machines are using Red Hat Enterprise Linux (RHEL).  The default login is opc.  You can SSH into the machine with a command like this:
+These machines are using CentOS.  The default login is opc.  You can SSH into the machine with a command like this:
 
     ssh -i ~/.ssh/oci opc@<Public IP Address>
 
