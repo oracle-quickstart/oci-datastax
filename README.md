@@ -66,4 +66,4 @@ When you no longer need the DSE cluster, you can run this to delete the deployme
 
 You'll need to enter `yes` when prompted.  Once complete, you'll see something like this:
 
-    ![](./images/10%20-%20terraform%20destroy.png)
+![](./images/10%20-%20terraform%20destroy.png)
