@@ -24,7 +24,6 @@ variable "dse" {
   default = {
     shape = "VM.Standard1.4"
     node_count = 3
-    version = "6.0.5"
   }
 }
 
@@ -33,14 +32,14 @@ variable "dse" {
 # You probably don't need to change these.
 # ---------------------------------------------------------------------------------------------------------------------
 
-// https://docs.cloud.oracle.com/iaas/images/image/d0062ebf-e494-4f22-b51c-b98203582150/
-// CentOS-7-2018.08.15-0
+// https://docs.cloud.oracle.com/iaas/images/image/c28dc7c4-f901-494c-a72b-b56eafdf0572/
+// Canonical-Ubuntu-16.04-Gen2-GPU-2018.08.15-0
 variable "images" {
   type = "map"
   default = {
-    eu-frankfurt-1 = "ocid1.image.oc1.eu-frankfurt-1.aaaaaaaatz6zixwltzswnmzi2qxdjcab6nw47xne4tco34kn6hltzdppmada"
-    us-ashburn-1 = "ocid1.image.oc1.iad.aaaaaaaah6ui3hcaq7d43esyrfmyqb3mwuzn4uoxjlbbdwoiicdmntlvwpda"
-    us-phoenix-1 = "ocid1.image.oc1.phx.aaaaaaaarbacra7juwrie5idcadtgbj3llxcu7p26rj4t3xujyqwwopy2wva"
-    uk-london-1  = "ocid1.image.oc1.uk-london-1.aaaaaaaai3czrt22cbu5uytpci55rcy4mpi4j7wm46iy5wdieqkestxve4yq"
+    eu-frankfurt-1 = "ocid1.image.oc1.eu-frankfurt-1.aaaaaaaagofslmfxshjjdvny7vpdbqwmvwxj6zritliwd6k37d5azjljwafq"
+    us-ashburn-1 = "ocid1.image.oc1.iad.aaaaaaaapmjxgjo7zjfmsxy3qalalgrh3sm7aw4u6npzvmtpetsogkyuaisq"
+    us-phoenix-1 = "ocid1.image.oc1.phx.aaaaaaaawwk3dbrs7kadsdbtf7k7prehyzpemmomzoejlcpryazu4ax437kq"
+    uk-london-1  = "ocid1.image.oc1.uk-london-1.aaaaaaaaked3fo6fy6stwhcwvsvxsn5ul6m3rr2ilfouu2bkwckcmcvbyu3a"
   }
 }
