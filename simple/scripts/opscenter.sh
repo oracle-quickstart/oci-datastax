@@ -5,7 +5,7 @@ echo "Running opscenter.sh"
 username="admin"
 password="admin"
 nodecount="3"
-version="6.0.5"
+version="6.0.2"
 
 echo "Got the parameters:"
 echo username $username
