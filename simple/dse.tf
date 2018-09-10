@@ -10,7 +10,7 @@ resource "oci_core_instance" "dse" {
   }
   metadata {
     ssh_authorized_keys = "${var.ssh_public_key}"
-    user_data           = "${base64encode(file("./scripts/dse.sh"))}"
+    user_data           = "${base64encode(file("../scripts/dse.sh"))}"
   }
   count = "${var.dse["node_count"]}"
 }

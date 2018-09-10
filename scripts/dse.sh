@@ -27,6 +27,7 @@ cd install-datastax-ubuntu-$release/bin/
 ./os/extra_packages.sh
 ./os/install_java.sh -o
 
+opscfqdn=""
 private_ip=`echo $(hostname -I)`
 public_ip=`curl --retry 10 icanhazip.com`
 
