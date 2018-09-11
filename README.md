@@ -52,7 +52,7 @@ These machines are using Ubuntu 16.  The default login is ubuntu.  You can SSH i
 
     ssh -i ~/.ssh/oci ubuntu@<Public IP Address>
 
-DSE is installed under `/opt/???/bin`.  You can debug deployments by investigating the cloud-init log file `/var/log/messages`.  You'll need to `sudo su` to be able to read it.
+You can debug deployments by investigating the cloud-init log file `/var/log/cloud-init-output.log`.
 
 ## View the Cluster in the Console
 You can also login to the web console [here](https://console.us-phoenix-1.oraclecloud.com/a/compute/instances) to view the IaaS that is running the cluster.

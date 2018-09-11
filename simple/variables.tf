@@ -26,7 +26,6 @@ variable "dse" {
     node_count = 3
     username = "admin"
     password = "admin"
-    version = "6.0.2"
   }
 }
 

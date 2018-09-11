@@ -5,18 +5,17 @@ echo "Running opscenter.sh"
 username="admin"
 password="admin"
 nodecount="3"
-version="6.0.2"
 
 echo "Got the parameters:"
 echo username $username
 echo password $password
 echo nodecount $nodecount
-echo version $version
 
 #######################################################"
 ################# Turn Off the Firewall ###############"
 #######################################################"
 echo "Turning off the Firewall..."
+#### crap, these commands don't work on Ubuntu
 service firewalld stop
 chkconfig firewalld off
 
@@ -49,7 +48,6 @@ sleep 1m
 --user $username \
 --password $password \
 --dbpasswd $password \
---datapath "/data/cassandra" \
 --nojava \
 --verbose
 
