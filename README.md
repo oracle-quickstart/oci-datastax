@@ -48,9 +48,9 @@ When the `terraform apply` completed, it printed out the URL of OpsCenter.  Let'
 ![](./images/04%20-%20terraform%20apply.png)
 
 ## SSH to a Node
-These machines are using CentOS.  The default login is opc.  You can SSH into the machine with a command like this:
+These machines are using Ubuntu 16.  The default login is ubuntu.  You can SSH into the machine with a command like this:
 
-    ssh -i ~/.ssh/oci opc@<Public IP Address>
+    ssh -i ~/.ssh/oci ubuntu@<Public IP Address>
 
 DSE is installed under `/opt/???/bin`.  You can debug deployments by investigating the cloud-init log file `/var/log/messages`.  You'll need to `sudo su` to be able to read it.
 
