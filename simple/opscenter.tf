@@ -24,4 +24,4 @@ data "oci_core_vnic" "opscenter_vnic" {
   vnic_id = "${lookup(data.oci_core_vnic_attachments.opscenter_vnic_attachments.vnic_attachments[0],"vnic_id")}"
 }
 
-output "OpsCenterURL" { value = "https://${data.oci_core_vnic.opscenter_vnic.public_ip_address}:8443" }
+output "OpsCenterURL" { value = "http://${data.oci_core_vnic.opscenter_vnic.public_ip_address}:8888" }
