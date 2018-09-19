@@ -2,7 +2,7 @@
 
 echo "Running dse.sh"
 
-password="admin"
+password=$1
 
 echo "Got the parameters:"
 echo password $password

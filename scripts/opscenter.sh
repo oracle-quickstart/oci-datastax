@@ -2,15 +2,15 @@
 
 echo "Running opscenter.sh"
 
-username="admin"
-password="admin"
-nodecount="3"
-version="6.0.2"
+username=$1
+password=$2
+node_count=$3
+version=$4
 
 echo "Got the parameters:"
 echo username $username
 echo password $password
-echo nodecount $nodecount
+echo node_count $node_count
 echo version $version
 
 #######################################################"
@@ -67,7 +67,7 @@ sleep 1m
 ./lcm/triggerInstall.py \
 --opscpw $password \
 --clustername "mycluster" \
---clustersize $nodecount \
+--clustersize $node_count \
 --pause 10 \
 --trys 400
 

@@ -10,7 +10,14 @@ resource "oci_core_instance" "opscenter" {
   }
   metadata {
     ssh_authorized_keys = "${var.ssh_public_key}"
-    user_data           = "${base64encode(file("../scripts/opscenter.sh"))}"
+    user_data           = "${base64encode(format("%s\n%s\n%s\n%s\n%s\n%s\n",
+      "#!/usr/bin/env bash",
+      "username=${var.couchbase_server["username"]}",
+      "password=${var.couchbase_server["password"]}",
+      "node_count=${var.couchbase_server["node_count"]}",
+      "version=${var.couchbase_server["version"]}",
+      file("../scripts/opscenter.sh")
+    ))}"
   }
 }
 
