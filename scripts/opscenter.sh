@@ -48,6 +48,7 @@ sleep 1m
 --user $username \
 --password $password \
 --dbpasswd $password \
+--dsever "6.0.2"
 --nojava \
 --verbose
 
