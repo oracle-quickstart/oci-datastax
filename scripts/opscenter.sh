@@ -51,7 +51,7 @@ sleep 1m
 --repopw "*9En9HH4j^p4" \
 --dsever $version \
 --username "ubuntu" \
---privkey $private_key \
+--privkey ~/.ssh/oci \
 --dbpasswd $password \
 --nojava \
 --verbose
