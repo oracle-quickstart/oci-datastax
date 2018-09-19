@@ -46,8 +46,7 @@ cd install-datastax-ubuntu-$release/bin
 #######################################################"
 
 # Turn on https and set the password for OpsCenter user admin
-#./opscenter/set_opsc_pw_https.sh $password
-
+./opscenter/set_opsc_pw_https.sh $password
 sleep 1m
 
 ./lcm/setupCluster.py \
@@ -55,7 +54,7 @@ sleep 1m
 --clustername "mycluster" \
 --repouser "datastax@oracle.com" \
 --repopw "*9En9HH4j^p4" \
---dsever "6.0.2" \
+--dsever "6.5.3" \
 --username $username \
 --password $password \
 --dbpasswd $password \
