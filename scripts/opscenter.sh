@@ -5,11 +5,13 @@ echo "Running opscenter.sh"
 username="admin"
 password="admin"
 nodecount="3"
+version="6.0.2"
 
 echo "Got the parameters:"
 echo username $username
 echo password $password
 echo nodecount $nodecount
+echo version $version
 
 #######################################################"
 ################# Turn Off the Firewall ###############"
@@ -54,7 +56,7 @@ sleep 1m
 --clustername "mycluster" \
 --repouser "datastax@oracle.com" \
 --repopw "*9En9HH4j^p4" \
---dsever "6.0.2" \
+--dsever $version \
 --username $username \
 --password $password \
 --dbpasswd $password \
