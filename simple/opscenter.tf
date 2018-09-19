@@ -24,4 +24,5 @@ data "oci_core_vnic" "opscenter_vnic" {
   vnic_id = "${lookup(data.oci_core_vnic_attachments.opscenter_vnic_attachments.vnic_attachments[0],"vnic_id")}"
 }
 
-output "OpsCenterURL" { value = "http://${data.oci_core_vnic.opscenter_vnic.public_ip_address}:8888" }
+output "OpsCenter URL" { value = "http://${data.oci_core_vnic.opscenter_vnic.public_ip_address}:8888" }
+output "Lifecycle Manager URL" { value = "http://${data.oci_core_vnic.opscenter_vnic.public_ip_address}:8888/opscenter/lcm.html" }
