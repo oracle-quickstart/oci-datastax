@@ -3,6 +3,7 @@ echo "Running opscenter.sh"
 echo "Got the parameters:"
 echo username $username
 echo password $password
+echo private_key $private_key
 echo node_count $node_count
 echo version $version
 
@@ -51,7 +52,7 @@ sleep 1m
 --repopw "*9En9HH4j^p4" \
 --dsever $version \
 --username "ubuntu" \
---privkey $privkey \
+--privkey $private_key \
 --dbpasswd $password \
 --nojava \
 --verbose
