@@ -44,11 +44,10 @@ sleep 1m
 --clustername "mycluster" \
 --repouser "datastax@oracle.com" \
 --repopw "*9En9HH4j^p4" \
---dsever  $version \
+--dsever "6.0.2"
 --user $username \
 --password $password \
 --dbpasswd $password \
---dsever "6.0.2"
 --nojava \
 --verbose
 
