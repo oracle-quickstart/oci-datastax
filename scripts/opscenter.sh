@@ -3,12 +3,8 @@ echo "Running opscenter.sh"
 echo "Got the parameters:"
 echo username $username
 echo password $password
-echo b64_private_key $b64_private_key
 echo node_count $node_count
 echo version $version
-
-private_key=`echo $b64_private_key | base64 -d`
-echo private_key $private_key
 
 #######################################################"
 ################# Turn Off the Firewall ###############"
