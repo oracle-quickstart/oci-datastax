@@ -15,9 +15,19 @@ echo nodecount $nodecount
 ################# Turn Off the Firewall ###############"
 #######################################################"
 echo "Turning off the Firewall..."
-#### crap, these commands don't work on Ubuntu
-service firewalld stop
-chkconfig firewalld off
+
+echo "" > /etc/iptables/rules.v4
+echo "" > /etc/iptables/rules.v6
+
+iptables -F
+iptables -X
+iptables -t nat -F
+iptables -t nat -X
+iptables -t mangle -F
+iptables -t mangle -X
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD ACCEPT
 
 #######################################################"
 ################### Install OpsCenter #################"
@@ -36,7 +46,8 @@ cd install-datastax-ubuntu-$release/bin
 #######################################################"
 
 # Turn on https and set the password for OpsCenter user admin
-./opscenter/set_opsc_pw_https.sh $password
+#./opscenter/set_opsc_pw_https.sh $password
+
 sleep 1m
 
 ./lcm/setupCluster.py \
