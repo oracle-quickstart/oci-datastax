@@ -45,7 +45,7 @@ sleep 1m
 --repouser "datastax@oracle.com" \
 --repopw "*9En9HH4j^p4" \
 --dsever "6.0.2"
---user $username \
+--username $username \
 --password $password \
 --dbpasswd $password \
 --nojava \
