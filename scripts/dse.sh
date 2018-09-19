@@ -1,8 +1,4 @@
-#!/bin/sh
-
 echo "Running dse.sh"
-
-password=$1
 
 echo "Got the parameters:"
 echo password $password
@@ -46,7 +42,7 @@ publicIP=`curl --retry 10 icanhazip.com`
 echo "Using the settings:"
 echo opscenterDNS \'$opscenterDNS\'
 echo nodeID \'$nodeID\'
-echo privateDNS \'$privateDNS\'
+echo privateIP \'$privateIP\'
 echo publicIP \'$publicIP\'
 
 ./lcm/addNode.py \

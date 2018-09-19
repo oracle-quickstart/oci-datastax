@@ -1,11 +1,4 @@
-#!/bin/sh
-
 echo "Running opscenter.sh"
-
-username=$1
-password=$2
-node_count=$3
-version=$4
 
 echo "Got the parameters:"
 echo username $username
