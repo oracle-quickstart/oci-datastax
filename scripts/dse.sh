@@ -40,7 +40,7 @@ cd install-datastax-ubuntu-$release/bin/
 
 opscenterDNS="opscenter.datastax.datastax.oraclevcn.com"
 nodeID=$(hostname)
-privateDNS=$nodeID".datastax.datastax.oraclevcn.com"
+privateIP=$(hostname -I)
 publicIP=`curl --retry 10 icanhazip.com`
 
 echo "Using the settings:"
@@ -58,5 +58,5 @@ echo publicIP \'$publicIP\'
 --dcname "dc1" \
 --rack "rack1" \
 --pubip $publicIP \
---privip $privateDNS \
+--privip $privateIP \
 --nodeid $nodeID
