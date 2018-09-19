@@ -50,8 +50,8 @@ sleep 1m
 --repouser "datastax@oracle.com" \
 --repopw "*9En9HH4j^p4" \
 --dsever $version \
---username $username \
---password $password \
+--username "ubuntu" \
+--privkey $privkey \
 --dbpasswd $password \
 --nojava \
 --verbose
