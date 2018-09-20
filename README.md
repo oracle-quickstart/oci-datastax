@@ -59,7 +59,7 @@ Similarly, if we check out the job, we see it hasn't run yet.
 
 Checking back a few minutes later, we see the job is complete!
 
-![](./images/09%20-%20job%20complete.png)
+![](./images/09%20-%20job%20done.png)
 
 ## Login to DataStax OpsCenter
 Now that the LCM job is all done, let's take a look at OpsCenter.  Open up a browser to that URL.  It was printed as output when `terraform apply` completed.
