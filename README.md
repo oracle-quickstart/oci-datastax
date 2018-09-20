@@ -1,5 +1,3 @@
-# Important - This doesn't work yet!
-
 # oci-terraform-dse
 [simple](simple) is a Terraform module that will deploy DSE on OCI.  Instructions on how to use it are below.  Best practices are detailed in [this document](bestpractices.md).
 
@@ -40,12 +38,40 @@ You'll need to enter `yes` when prompted.  The apply should take about five minu
 
 ![](./images/04%20-%20terraform%20apply.png)
 
-When the apply is complete, the infrastructure will be deployed, but cloud-init scripts will still be running.  Those will wrap up asynchronously.  So, it'll be a few more minutes before your cluster is accessible.  Now is a good time to get a coffee.
+When the apply is complete, the infrastructure will be deployed, but cloud-init scripts will still be running.  Those will wrap up asynchronously.  OpsCenter and Lifecycle Manager (LCM) will probably be up five minutes after you run apply.  The cluster might take another ten minutes to build after that.  Now is a good time to get a coffee.
 
-## Connect to the Cluster
-When the `terraform apply` completed, it printed out the URL of OpsCenter.  Let's login and take a look...
+## Login to DataStax Lifecycle Manager (LCM)
+When the `terraform apply` completed, it printed out the URLs for OpsCenter and LCM.  Let's check out LCM first.  Open a browser to the URL from the output.  
 
-![](./images/04%20-%20terraform%20apply.png)
+![](./images/05%20-%20warning.png)
+
+The username is `admin` and the password is whatever you specified in [variables.tf](simple/variables.tf).
+
+![](./images/06%20-%20login.png)
+
+In this case, the job isn't done yet.  If we drill down on clusters we can see that the nodes have been added but LCM hasn't yet SSH'd into them to install DSE.
+
+![](./images/07%20-%20cluster.png)
+
+Similarly, if we check out the job, we see it hasn't run yet.
+
+![](./images/08%20-%20job.png)
+
+Checking back a few minutes later, we see the job is complete!
+
+![](./images/09%20-%20job%20complete.png)
+
+## Login to DataStax OpsCenter
+Now that the LCM job is all done, let's take a look at OpsCenter.  Open up a browser to that URL.  It was printed as output when `terraform apply` completed.
+
+![](./images/10%20-%20opscenter.png)
+
+If everything ran ok, you should see a ring with the number of nodes you specified in [variables.tf](simple/variables.tf).
+
+## View the Cluster in the Console
+You can also login to the web console [here](https://console.us-phoenix-1.oraclecloud.com/a/compute/instances) to view the IaaS that is running the cluster.
+
+![](./images/11%20-%20console.png)
 
 ## SSH to a Node
 These machines are using Ubuntu 16.  The default login is ubuntu.  You can SSH into the machine with a command like this:
@@ -54,10 +80,13 @@ These machines are using Ubuntu 16.  The default login is ubuntu.  You can SSH i
 
 You can debug deployments by investigating the cloud-init log file `/var/log/cloud-init-output.log`.
 
-## View the Cluster in the Console
-You can also login to the web console [here](https://console.us-phoenix-1.oraclecloud.com/a/compute/instances) to view the IaaS that is running the cluster.
+If you want to get started interacting with the database you can run `cqlsh` with the default user `cassandra` and whatever password you specified in [variables.tf](simple/variables.tf).  For instance:
 
-![](./images/09%20-%20console.png)
+    cqlsh -u cassandra -p admin
+
+This gives:
+
+![](./images/12%20-%20cqlsh.png)
 
 ## Destroy the Deployment
 When you no longer need the DSE cluster, you can run this to delete the deployment:
@@ -66,4 +95,4 @@ When you no longer need the DSE cluster, you can run this to delete the deployme
 
 You'll need to enter `yes` when prompted.  Once complete, you'll see something like this:
 
-![](./images/10%20-%20terraform%20destroy.png)
+![](./images/13%20-%20terraform%20destroy.png)
