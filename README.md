@@ -11,7 +11,7 @@ Now, you'll want a local copy of this repo.  You can make that with the commands
     cd oci-datastax/simple
     ls
 
-![](./images/1%20-%20git%20clone.png)
+![](./images/01%20-%20git%20clone.png)
 
 We now need to initialize the directory with the module in it.  This makes the module aware of the OCI provider.  You can do this by running:
 
@@ -19,7 +19,7 @@ We now need to initialize the directory with the module in it.  This makes the m
 
 This gives the following output:
 
-![](./images/2%20-%20terraform%20init.png)
+![](./images/02%20-%20terraform%20init.png)
 
 ## Deploy
 Now for the main attraction.  Let's make sure the plan looks good:
