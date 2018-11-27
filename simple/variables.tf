@@ -23,7 +23,7 @@ variable "ssh_private_key" {}
 variable "dse" {
   type = "map"
   default = {
-    shape = "VM.Standard1.4"
+    shape = "VM.Standard2.4"
     node_count = 3
     username = "admin"
     password = "admin"
