@@ -32,7 +32,6 @@ cd install-datastax-ubuntu-$release/bin/
 
 # install extra packages, openjdk
 ./os/extra_packages.sh
-./os/install_java.sh -o
 
 opscenterDNS="opscenter.datastax.datastax.oraclevcn.com"
 nodeID=$(hostname)

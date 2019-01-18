@@ -31,6 +31,7 @@ release="7.1.0"
 wget https://github.com/DSPN/install-datastax-ubuntu/archive/$release.tar.gz
 tar -xvf $release.tar.gz
 
+export OPSC_VERSION="6.7.0"
 cd install-datastax-ubuntu-$release/bin
 ./os/extra_packages.sh
 ./os/install_java.sh -o
@@ -52,8 +53,8 @@ sleep 1m
 --dsever $version \
 --username "ubuntu" \
 --privkey ~/.ssh/oci \
+--dsever "6.7.0" \
 --dbpasswd $password \
---nojava \
 --verbose
 
 # trigger install
