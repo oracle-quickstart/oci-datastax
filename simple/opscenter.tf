@@ -1,6 +1,6 @@
 resource "oci_core_instance" "opscenter" {
   display_name        = "opscenter"
-  compartment_id      = "${var.tenancy_ocid}"
+  compartment_id      = "${var.compartment_ocid}"
   availability_domain = "${lookup(data.oci_identity_availability_domains.availability_domains.availability_domains[0],"name")}"
   shape               = "VM.Standard2.4"
   subnet_id           = "${oci_core_subnet.subnet.id}"
@@ -23,7 +23,7 @@ resource "oci_core_instance" "opscenter" {
 }
 
 data "oci_core_vnic_attachments" "opscenter_vnic_attachments" {
-  compartment_id      = "${var.tenancy_ocid}"
+  compartment_id      = "${var.compartment_ocid}"
   availability_domain = "${lookup(data.oci_identity_availability_domains.availability_domains.availability_domains[0],"name")}"
   instance_id         = "${oci_core_instance.opscenter.*.id[0]}"
 }
