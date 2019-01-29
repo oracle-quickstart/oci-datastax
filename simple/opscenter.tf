@@ -10,7 +10,7 @@ resource "oci_core_instance" "opscenter" {
   }
   metadata {
     ssh_authorized_keys = "${var.ssh_public_key}"
-    user_data           = "${base64encode(format("%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
+    user_data           = "${base64encode(join("\n", list(
       "#!/usr/bin/env bash",
       "username=${var.dse["username"]}",
       "password=${var.dse["password"]}",
@@ -18,7 +18,7 @@ resource "oci_core_instance" "opscenter" {
       "version=${var.dse["version"]}",
       "echo ${base64encode(var.ssh_private_key)} | base64 -d > ~/.ssh/oci",
       file("../scripts/opscenter.sh")
-    ))}"
+    )))}"
   }
 }
 
