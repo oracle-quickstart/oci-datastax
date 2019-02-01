@@ -7,6 +7,10 @@ resource "oci_core_virtual_network" "virtual_network" {
   compartment_id = "${var.compartment_ocid}"
   cidr_block     = "10.0.0.0/16"
   dns_label      = "datastax"
+
+  freeform_tags = {
+    "Quickstart" = "{\"Deployment\":\"TF\", \"Publisher\":\"DatsaStax\", \"Offer\":\"dse\",\"Licence\":\"byol\"}"
+  }
 }
 
 resource "oci_core_internet_gateway" "internet_gateway" {

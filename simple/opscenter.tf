@@ -23,6 +23,10 @@ resource "oci_core_instance" "opscenter" {
       file("../scripts/opscenter.sh")
     )))}"
   }
+
+  freeform_tags = {
+    "Quickstart" = "{\"Deployment\":\"TF\", \"Publisher\":\"DatsaStax\", \"Offer\":\"dse\",\"Licence\":\"byol\"}"
+  }
 }
 
 data "oci_core_vnic_attachments" "opscenter_vnic_attachments" {
