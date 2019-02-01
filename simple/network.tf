@@ -9,7 +9,7 @@ resource "oci_core_virtual_network" "virtual_network" {
   dns_label      = "datastax"
 
   freeform_tags = {
-    "Quickstart" = "{\"Deployment\":\"TF\", \"Publisher\":\"DatsaStax\", \"Offer\":\"dse\",\"Licence\":\"byol\"}"
+    "Quickstart" = "{\"Deployment\":\"TF\", \"Publisher\":\"DataStax\", \"Offer\":\"dse\",\"Licence\":\"byol\"}"
   }
 }
 

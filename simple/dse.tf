@@ -26,7 +26,7 @@ resource "oci_core_instance" "dse" {
   }
 
   freeform_tags = {
-    "Quickstart" = "{\"Deployment\":\"TF\", \"Publisher\":\"DatsaStax\", \"Offer\":\"dse\",\"Licence\":\"byol\"}"
+    "Quickstart" = "{\"Deployment\":\"TF\", \"Publisher\":\"DataStax\", \"Offer\":\"dse\",\"Licence\":\"byol\"}"
 
     "otherTagKey" = "otherTagVal"
   }
