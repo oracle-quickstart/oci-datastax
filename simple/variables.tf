@@ -6,7 +6,6 @@
 
 # Required by the OCI Provider
 variable "tenancy_ocid" {}
-
 variable "compartment_ocid" {}
 variable "user_ocid" {}
 variable "fingerprint" {}
@@ -15,7 +14,6 @@ variable "region" {}
 
 # Key used to SSH to OCI VMs
 variable "ssh_public_key" {}
-
 variable "ssh_private_key" {}
 
 # ---------------------------------------------------------------------------------------------------------------------
