@@ -1,14 +1,14 @@
 # oci-terraform-dse
-[simple](simple) is a Terraform module that will deploy DSE on OCI.  Instructions on how to use it are below.  Best practices are detailed in [this document](bestpractices.md).
+These is a Terraform modules that deploys [DataStax Enterprise (DSE)](https://www.datastax.com/products/datastax-enterprise) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).
 
 ## Prerequisites
-First off you'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/cloud-partners/oci-prerequisites).
+First off you'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/oci-quickstart/oci-prerequisites).
 
 ## Clone the Module
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
-    git clone https://github.com/cloud-partners/oci-datastax.git
-    cd oci-datastax/simple
+    git clone https://github.com/oci-quickstart/oci-datastax.git
+    cd oci-datastax/terraform
     ls
 
 ![](./images/01%20-%20git%20clone.png)
