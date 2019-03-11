@@ -1,4 +1,4 @@
-# oci-terraform-dse
+# oci-datastax
 These is a Terraform modules that deploys [DataStax Enterprise (DSE)](https://www.datastax.com/products/datastax-enterprise) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).
 
 ## Prerequisites
