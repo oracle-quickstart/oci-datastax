@@ -25,7 +25,7 @@ resource "oci_core_instance" "opscenter" {
   }
 
   freeform_tags = {
-    "Quickstart" = "{\"Deployment\":\"TF\", \"Publisher\":\"DataStax\", \"Offer\":\"dse\",\"Licence\":\"byol\"}"
+    "quick-start" = "{\"Deployment\":\"TF\", \"Publisher\":\"DataStax\", \"Offer\":\"dse\",\"Licence\":\"byol\"}"
   }
 }
 

@@ -26,8 +26,7 @@ resource "oci_core_instance" "dse" {
   }
 
   freeform_tags = {
-    "Quickstart" = "{\"Deployment\":\"TF\", \"Publisher\":\"DataStax\", \"Offer\":\"dse\",\"Licence\":\"byol\"}"
-    "otherTagKey" = "otherTagVal"
+    "quick-start" = "{\"Deployment\":\"TF\", \"Publisher\":\"DataStax\", \"Offer\":\"dse\",\"Licence\":\"byol\"}"
   }
 
   count = "${var.dse["node_count"]}"
