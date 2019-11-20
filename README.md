@@ -2,13 +2,13 @@
 These are Terraform modules that deploy [DataStax Enterprise (DSE)](https://www.datastax.com/products/datastax-enterprise) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).  They are developed jointly by Oracle and DataStax.
 
 ## Prerequisites
-First off you'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/oracle/oci-quickstart-prerequisites).
+First off you'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/oracle-quickstart/oci-prerequisites).
 
 ## Clone the Module
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
-    git clone https://github.com/oracle/oci-quickstart-datastax.git
-    cd oci-quickstart-datastax/terraform
+    git clone https://github.com/oracle-quickstart/oci-datastax.git
+    cd oci-datastax/terraform
     ls
 
 ![](./images/01%20-%20git%20clone.png)
