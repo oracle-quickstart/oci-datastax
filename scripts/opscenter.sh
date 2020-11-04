@@ -27,11 +27,11 @@ iptables -P FORWARD ACCEPT
 #######################################################"
 ################### Install OpsCenter #################"
 #######################################################"
-release="7.1.0"
+release="7.2.0"
 wget https://github.com/DSPN/install-datastax-ubuntu/archive/$release.tar.gz
 tar -xvf $release.tar.gz
 
-export OPSC_VERSION="6.7.1"
+export OPSC_VERSION="6.7.8"
 cd install-datastax-ubuntu-$release/bin
 ./os/extra_packages.sh
 ./os/install_java.sh -o
