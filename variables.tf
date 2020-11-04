@@ -5,16 +5,30 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 # Required by the OCI Provider
-variable "tenancy_ocid" {}
-variable "compartment_ocid" {}
-variable "user_ocid" {}
-variable "fingerprint" {}
-variable "private_key_path" {}
-variable "region" {}
+variable "tenancy_ocid" {
+}
+
+variable "compartment_ocid" {
+}
+
+variable "user_ocid" {
+}
+
+variable "fingerprint" {
+}
+
+variable "private_key_path" {
+}
+
+variable "region" {
+}
 
 # Key used to SSH to OCI VMs
-variable "ssh_public_key" {}
-variable "ssh_private_key" {}
+variable "ssh_public_key" {
+}
+
+variable "ssh_private_key" {
+}
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Optional variables
@@ -22,7 +36,7 @@ variable "ssh_private_key" {}
 # ---------------------------------------------------------------------------------------------------------------------
 
 variable "dse" {
-  type = "map"
+  type = map(string)
 
   default = {
     shape      = "VM.Standard2.4"
@@ -41,7 +55,7 @@ variable "dse" {
 // https://docs.cloud.oracle.com/iaas/images/image/67026570-4527-42f5-b483-75085379e48c/
 // Canonical-Ubuntu-16.04-2018.08.15-0
 variable "images" {
-  type = "map"
+  type = map(string)
 
   default = {
     eu-frankfurt-1 = "ocid1.image.oc1.eu-frankfurt-1.aaaaaaaa3tl3phbgdyzjba64h2tgunnwzxbxtw4r36u4ttnsn3m77t6jcurq"
@@ -50,3 +64,4 @@ variable "images" {
     uk-london-1    = "ocid1.image.oc1.uk-london-1.aaaaaaaaizzbceqxadaggbchf6yasjralcqdlh2tmgca6ag5b4gvcg4k4rha"
   }
 }
+
