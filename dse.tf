@@ -21,7 +21,7 @@ resource "oci_core_instance" "dse" {
     user_data = "${base64encode(join("\n", list(
       "#!/usr/bin/env bash",
       "password=${var.dse["password"]}",
-      file("../scripts/dse.sh")
+      file("./scripts/dse.sh")
     )))}"
   }
 

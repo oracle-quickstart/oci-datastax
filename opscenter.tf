@@ -20,7 +20,7 @@ resource "oci_core_instance" "opscenter" {
       "node_count=${var.dse["node_count"]}",
       "version=${var.dse["version"]}",
       "echo ${base64encode(var.ssh_private_key)} | base64 -d > ~/.ssh/oci",
-      file("../scripts/opscenter.sh")
+      file("./scripts/opscenter.sh")
     )))}"
   }
 
