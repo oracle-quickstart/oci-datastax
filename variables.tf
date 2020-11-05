@@ -35,16 +35,23 @@ variable "ssh_private_key" {
 # The defaults here will give you a cluster.  You can also modify these.
 # ---------------------------------------------------------------------------------------------------------------------
 
-variable "dse" {
-  type = map(string)
+variable "node_shape" {
+  description = "Shape for DSE nodes"
+  default = "VM.Standard2.4"
+}
 
-  default = {
-    shape      = "VM.Standard2.4"
-    node_count = 3
-    username   = "admin"
-    password   = "admin"
-    version    = "6.0.2"
-  }
+variable "node_count" {
+  description = "Number of DSE nodes"
+  default = 3
+}
+
+variable "dse_version" {
+  description = "DSE version"
+  default = "6.7.12"
+}
+
+variable "password" {
+  description = "Password for DSE user 'cassandra' and OpsCenter user 'admin'"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -64,4 +71,3 @@ variable "images" {
     uk-london-1    = "ocid1.image.oc1.uk-london-1.aaaaaaaaizzbceqxadaggbchf6yasjralcqdlh2tmgca6ag5b4gvcg4k4rha"
   }
 }
-

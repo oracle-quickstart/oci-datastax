@@ -1,7 +1,6 @@
 echo "Running opscenter.sh"
 
 echo "Got the parameters:"
-echo username $username
 echo password $password
 echo node_count $node_count
 echo version $version
@@ -31,7 +30,7 @@ release="7.2.0"
 wget https://github.com/DSPN/install-datastax-ubuntu/archive/$release.tar.gz
 tar -xvf $release.tar.gz
 
-export OPSC_VERSION="6.7.8"
+export OPSC_VERSION="6.8.5"
 cd install-datastax-ubuntu-$release/bin
 ./os/extra_packages.sh
 ./os/install_java.sh -o
@@ -53,7 +52,6 @@ sleep 1m
 --dsever $version \
 --username "ubuntu" \
 --privkey ~/.ssh/oci \
---dsever "6.7.2" \
 --dbpasswd $password \
 --verbose
 

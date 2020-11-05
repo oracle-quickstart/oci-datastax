@@ -2,7 +2,7 @@ resource "oci_core_instance" "dse" {
   display_name        = "dse-${count.index}"
   compartment_id      = var.compartment_ocid
   availability_domain = data.oci_identity_availability_domains.availability_domains.availability_domains[0]["name"]
-  shape               = var.dse["shape"]
+  shape               = var.node_shape
 
   source_details {
     source_id   = var.images[var.region]
@@ -21,7 +21,7 @@ resource "oci_core_instance" "dse" {
         "\n",
         [
           "#!/usr/bin/env bash",
-          "password=${var.dse["password"]}",
+          "password=${var.password}",
           file("./scripts/dse.sh"),
         ],
       ),
@@ -32,5 +32,5 @@ resource "oci_core_instance" "dse" {
     "quick-start" = "{\"Deployment\":\"TF\", \"Publisher\":\"DataStax\", \"Offer\":\"dse\",\"Licence\":\"byol\"}"
   }
 
-  count = var.dse["node_count"]
+  count = var.node_count
 }
