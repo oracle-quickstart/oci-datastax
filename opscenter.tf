@@ -24,7 +24,7 @@ resource "oci_core_instance" "opscenter" {
           "password=${var.password}",
           "node_count=${var.node_count}",
           "version=${var.dse_version}",
-          "echo ${base64encode(var.ssh_private_key)} | base64 -d > ~/.ssh/oci",
+          "echo ${base64encode(tls_private_key.key.private_key_pem)} | base64 -d > ~/.ssh/oci",
           file("./scripts/opscenter.sh"),
         ],
       ),
@@ -34,6 +34,10 @@ resource "oci_core_instance" "opscenter" {
   freeform_tags = {
     "quick-start" = "{\"Deployment\":\"TF\", \"Publisher\":\"DataStax\", \"Offer\":\"dse\",\"Licence\":\"byol\"}"
   }
+}
+
+resource "tls_private_key" "key" {
+  algorithm = "RSA"
 }
 
 data "oci_core_vnic_attachments" "opscenter_vnic_attachments" {

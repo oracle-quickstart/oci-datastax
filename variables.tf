@@ -11,23 +11,11 @@ variable "tenancy_ocid" {
 variable "compartment_ocid" {
 }
 
-variable "user_ocid" {
-}
-
-variable "fingerprint" {
-}
-
-variable "private_key_path" {
-}
-
 variable "region" {
 }
 
 # Key used to SSH to OCI VMs
 variable "ssh_public_key" {
-}
-
-variable "ssh_private_key" {
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -37,17 +25,17 @@ variable "ssh_private_key" {
 
 variable "node_shape" {
   description = "Shape for DSE nodes"
-  default = "VM.Standard2.4"
+  default     = "VM.Standard2.4"
 }
 
 variable "node_count" {
   description = "Number of DSE nodes"
-  default = 3
+  default     = 3
 }
 
 variable "dse_version" {
   description = "DSE version"
-  default = "6.7.12"
+  default     = "6.7.12"
 }
 
 variable "password" {

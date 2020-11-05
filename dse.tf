@@ -15,7 +15,14 @@ resource "oci_core_instance" "dse" {
   }
 
   metadata = {
-    ssh_authorized_keys = var.ssh_public_key
+    ssh_authorized_keys = join(
+      "\n",
+      [
+        var.ssh_public_key,
+        tls_private_key.ssh.public_key_openssh
+      ]
+    )
+    
     user_data = base64encode(
       join(
         "\n",
