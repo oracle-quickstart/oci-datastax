@@ -24,7 +24,7 @@ resource "oci_core_instance" "opscenter" {
           "password=${var.password}",
           "node_count=${var.node_count}",
           "version=${var.dse_version}",
-          "echo ${base64encode(tls_private_key.key.private_key_pem)} | base64 -d > ~/.ssh/oci",
+          "echo ${base64encode(tls_private_key.ssh_key.private_key_pem)} | base64 -d > ~/.ssh/oci",
           file("./scripts/opscenter.sh"),
         ],
       ),
@@ -36,7 +36,7 @@ resource "oci_core_instance" "opscenter" {
   }
 }
 
-resource "tls_private_key" "key" {
+resource "tls_private_key" "ssh_key" {
   algorithm = "RSA"
 }
 

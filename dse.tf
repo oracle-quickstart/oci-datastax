@@ -19,10 +19,10 @@ resource "oci_core_instance" "dse" {
       "\n",
       [
         var.ssh_public_key,
-        tls_private_key.ssh.public_key_openssh
+        tls_private_key.ssh_key.public_key_openssh
       ]
     )
-    
+
     user_data = base64encode(
       join(
         "\n",
