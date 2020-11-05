@@ -1,10 +1,24 @@
 # oci-datastax
 These are Terraform modules that deploy [DataStax Enterprise (DSE)](https://www.datastax.com/products/datastax-enterprise) on [Oracle Cloud Infrastructure (OCI)](https://cloud.oracle.com/en_US/cloud-infrastructure).  They are developed jointly by Oracle and DataStax.
 
-## Prerequisites
-First off you'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/oracle-quickstart/oci-prerequisites).
+## Resource Manager Deployment
 
-## Clone the Module
+This Quick Start uses [OCI Resource Manager](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm) to make deployment easy, sign up for an [OCI account](https://cloud.oracle.com/en_US/tryit) if you don't have one, and just click the button below:
+
+[![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://console.us-ashburn-1.oraclecloud.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/oracle-quickstart/oci-datastax/archive/button.zip)
+
+After logging into the console you'll walk through the selection of variables for the deployment.
+
+Note, if you use this template to create another repo you'll need to change the link for the button to point at your repo.
+
+## Local Development
+
+First off we'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/oracle/oci-quickstart-prerequisites).
+
+If you want to not use ORM and deploy with the terraform CLI you need to rename
+`provider.tf.cli -> provider.tf`. This is because authentication works slightly
+differently in ORM vs the CLI.
+
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
     git clone https://github.com/oracle-quickstart/oci-datastax.git

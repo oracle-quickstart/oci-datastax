@@ -1,0 +1,124 @@
+# Title shown in Application Information tab.
+title: DataStax Enterprise
+# Sub Title shown in Application Information tab.
+description: Terraform deployment of DSE
+schemaVersion: 1.1.0
+version: "20190304"
+
+locale: "en"
+variableGroups:
+  - title: "Hidden Variable Group"
+    visible: false
+    variables:
+#"variables used internally - not exposed to end user"
+      - tenancy_ocid
+      - region
+      - compartmnet_ocid
+
+  - title: "Compute Configuration"
+    variables:
+      - node_shape
+      - node_count
+      - ssh_public_key
+      - dse_version
+      - password
+
+
+######################################################
+##############          VARIABLES        #############
+######################################################
+
+variables:
+  # Hidden variables
+
+######################################################
+##############    HIDDEN VARIABLES       #############
+######################################################
+
+
+  tenancy_ocid:
+    type: string
+    title: Tenancy ID
+    description: The Oracle Cloud Identifier (OCID) for your tenancy
+    required: true
+
+  region:
+    type: oci:identity:region:name
+    title: Region
+    description: The region in which to create all resources
+    required: true
+
+  compartment_ocid:
+    type: oci:identity:compartment:id
+    required: true
+    title: Compute Compartment
+    description: The compartment in which to create all Compute resources
+    default: compartment_ocid
+
+######################################################
+##############    COMPUTE VARIABLES      #############
+######################################################
+
+  ssh_public_key:
+    type: oci:core:ssh:publickey
+    required: true
+    title: Public SSH Key string
+    description: Public SSH Key to access VM via SSH
+
+  node_shape:
+    type: oci:core:instanceshape:name
+    default: VM.Standard2.2
+    title: Node Shape
+    required: true
+    dependsOn:
+      compartmentId: compute_compartment_ocid
+
+  node_count:
+    type: integer
+    default: 3
+    title: Number of DSE nodes
+    minimum: 1
+
+  password:
+    type: string
+    title: "Password for DSE user 'cassandra' and OpsCenter user 'admin'"
+    description: "Alphanumeric, min 8 characters"
+    required: true
+    pattern: "^[a-zA-Z0-9]{8,}$"
+
+
+#############################################
+###########    OUTPUT GROUPS     ############
+#############################################
+
+outputGroups:
+  - title: "Instance Management"
+    outputs:
+      - instance_public_ip
+      - instance_private_ip
+
+
+#############################################
+##############     OUTPUTS     ##############
+#############################################
+
+outputs:
+  instance_https_url:
+    type: link
+    title: Open Application URL
+    visible: false
+
+  instance_public_ip:
+    type: link
+    title: Public IP
+    visible: #($mgmt_subnet_type == "Public Subnet")
+      eq:
+      - mgmt_subnet_type
+      - "Public Subnet"
+
+  instance_private_ip:
+    type: link
+    title: Private IP
+    visible: true
+
+primaryOutputButton: instance_https_url
