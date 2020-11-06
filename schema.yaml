@@ -14,6 +14,7 @@ variableGroups:
       - tenancy_ocid
       - region
       - compartmnet_ocid
+      - images
 
   - title: "Compute Configuration"
     variables:
@@ -71,7 +72,7 @@ variables:
     title: Node Shape
     required: true
     dependsOn:
-      compartmentId: compute_compartment_ocid
+      compartmentId: compartment_ocid
 
   node_count:
     type: integer

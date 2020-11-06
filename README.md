@@ -7,17 +7,18 @@ This Quick Start uses [OCI Resource Manager](https://docs.cloud.oracle.com/iaas/
 
 [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://console.us-ashburn-1.oraclecloud.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/oracle-quickstart/oci-datastax/archive/button.zip)
 
-After logging into the console you'll walk through the selection of variables for the deployment.
+After logging into the console you'll walk through the selection of variables for the deployment. You'll then run an `Apply Job` on the stack created, and be able to see the progress of resource creation in the logs in the console. Once that's complete follow the instructions in the [Login to DataStax Lifecycle Manager ](#login-to-datastax-lifecycle-manager) section below.
 
-Note, if you use this template to create another repo you'll need to change the link for the button to point at your repo.
+Note, if you fork this repo you'll need to change the link for the button to point at your repo.
 
 ## Local Development
 
-First off we'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/oracle/oci-quickstart-prerequisites).
+If you prefer to develop locally, ie by running the `terraform` command
+you'll need to do some pre deploy setup.
+That's all detailed [here](https://github.com/oracle/oci-quickstart-prerequisites).
 
-If you want to not use ORM and deploy with the terraform CLI you need to rename
-`provider.tf.cli -> provider.tf`. This is because authentication works slightly
-differently in ORM vs the CLI.
+You also need to rename `provider.tf.cli -> provider.tf`. This is because
+authentication works slightly differently in ORM vs the CLI.
 
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
@@ -54,7 +55,7 @@ You'll need to enter `yes` when prompted.  The apply should take about five minu
 
 When the apply is complete, the infrastructure will be deployed, but cloud-init scripts will still be running.  Those will wrap up asynchronously.  OpsCenter and Lifecycle Manager (LCM) will probably be up five minutes after you run apply.  The cluster might take another ten minutes to build after that.  Now is a good time to get a coffee.
 
-## Login to DataStax Lifecycle Manager (LCM)
+## Login to DataStax Lifecycle Manager
 When the `terraform apply` completed, it printed out the URLs for OpsCenter and LCM.  Let's check out LCM first.  Open a browser to the URL from the output.  
 
 ![](./images/05%20-%20warning.png)
