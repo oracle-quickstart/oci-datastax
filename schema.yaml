@@ -13,7 +13,7 @@ variableGroups:
 #"variables used internally - not exposed to end user"
       - tenancy_ocid
       - region
-      - compartmnet_ocid
+      - compartment_ocid
       - images
 
   - title: "Compute Configuration"
@@ -81,7 +81,7 @@ variables:
     minimum: 1
 
   password:
-    type: string
+    type: password
     title: "Password for DSE user 'cassandra' and OpsCenter user 'admin'"
     description: "Alphanumeric, min 8 characters"
     required: true
