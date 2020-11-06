@@ -7,18 +7,20 @@ This Quick Start uses [OCI Resource Manager](https://docs.cloud.oracle.com/iaas/
 
 [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://console.us-ashburn-1.oraclecloud.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/oracle-quickstart/oci-datastax/archive/button.zip)
 
-After logging into the console you'll walk through the selection of variables for the deployment. You'll then run an `Apply Job` on the stack created, and be able to see the progress of resource creation in the logs in the console. Once that's complete follow the instructions in the [Login to DataStax Lifecycle Manager ](#login-to-datastax-lifecycle-manager) section below.
+After logging into the console you'll walk through the selection of variables for
+the deployment. You'll then run an `Apply Job` on the stack created, and be able
+to see the progress of resource creation in the logs in the console. Once that's
+complete follow the instructions in the [Login to DataStax Lifecycle Manager ](#login-to-datastax-lifecycle-manager)
+section below. Note, these templates generate an ssh key pair on the fly for
+LCM -> node connections. The private key is in the terraform state file, therefore
+treat it as a secret.
 
 Note, if you fork this repo you'll need to change the link for the button to point at your repo.
 
 ## Local Development
 
 If you prefer to develop locally, ie by running the `terraform` command
-you'll need to do some pre deploy setup.
-That's all detailed [here](https://github.com/oracle/oci-quickstart-prerequisites).
-
-You also need to rename `provider.tf.cli -> provider.tf`. This is because
-authentication works slightly differently in ORM vs the CLI.
+you'll need to do some pre deploy setup. That's all detailed [here](https://github.com/oracle/oci-quickstart-prerequisites).
 
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
@@ -27,6 +29,9 @@ Now, you'll want a local copy of this repo.  You can make that with the commands
     ls
 
 ![](./images/01%20-%20git%20clone.png)
+
+You need to rename `provider.tf.cli -> provider.tf`. This is because
+authentication works slightly differently in ORM vs the CLI.
 
 We now need to initialize the directory with the module in it.  This makes the module aware of the OCI provider.  You can do this by running:
 
