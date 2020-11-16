@@ -25,7 +25,7 @@ you'll need to do some pre deploy setup. That's all detailed [here](https://gith
 Now, you'll want a local copy of this repo.  You can make that with the commands:
 
     git clone https://github.com/oracle-quickstart/oci-datastax.git
-    cd oci-datastax/terraform
+    cd oci-datastax
     ls
 
 ![](./images/01%20-%20git%20clone.png)
