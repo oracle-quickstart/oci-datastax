@@ -8,7 +8,7 @@ This Quick Start uses [OCI Resource Manager](https://docs.cloud.oracle.com/iaas/
 [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://console.us-ashburn-1.oraclecloud.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/oracle-quickstart/oci-datastax/archive/button.zip)
 
 After logging into the console you'll walk through the selection of variables for
-the deployment. You'll then run an `Apply Job` on the stack created, and be able
+the deployment. You'll then select `Terraform Actions -> Apply` on the stack created, and be able
 to see the progress of resource creation in the logs in the console. Once that's
 complete follow the instructions in the [Login to DataStax Lifecycle Manager ](#login-to-datastax-lifecycle-manager)
 section below. Note, these templates generate an ssh key pair on the fly for
