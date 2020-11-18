@@ -54,7 +54,9 @@ If that's good, we can go ahead and apply the deploy:
 
     terraform apply
 
-You'll need to enter `yes` when prompted.  The apply should take about five minutes to run.  Once complete, you'll see something like this:
+You'll need to enter a password shared by the `cassandra` user and OpsCenter `admin` user,
+and then `yes` when prompted.  The apply should take about five minutes to run.  
+Once complete, you'll see something like this:
 
 ![](./images/04%20-%20terraform%20apply.png)
 
@@ -100,9 +102,9 @@ These machines are using Ubuntu 16.  The default login is ubuntu.  You can SSH i
 
 You can debug deployments by investigating the cloud-init log file `/var/log/cloud-init-output.log`.
 
-If you want to get started interacting with the database you can run `cqlsh` with the default user `cassandra` and whatever password you specified in [variables.tf](simple/variables.tf).  For instance:
+If you want to get started interacting with the database you can run `cqlsh` with the default user `cassandra` and whatever password you chose when prompted.  For instance:
 
-    cqlsh -u cassandra -p admin
+    cqlsh -u cassandra -p <password you chose>
 
 This gives:
 
