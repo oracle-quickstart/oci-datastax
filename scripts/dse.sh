@@ -24,7 +24,7 @@ iptables -P FORWARD ACCEPT
 #######################################################"
 ##################### Configure DSE ###################"
 #######################################################"
-release="7.1.0"
+release="7.3.0"
 wget https://github.com/DSPN/install-datastax-ubuntu/archive/$release.tar.gz
 tar -xvf $release.tar.gz
 
