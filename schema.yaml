@@ -80,6 +80,14 @@ variables:
     title: Number of DSE nodes
     minimum: 1
 
+  dse_version:
+    type: enum
+    title: DSE Version
+    enum:
+      - "6.7.12"
+    required: true
+    default: "6.7.12"
+
   password:
     type: password
     title: "Password for DSE user 'cassandra' and OpsCenter user 'admin'"
@@ -104,22 +112,24 @@ outputGroups:
 #############################################
 
 outputs:
-  instance_https_url:
+  opscenter_url:
     type: link
-    title: Open Application URL
-    visible: false
-
-  instance_public_ip:
-    type: link
-    title: Public IP
-    visible: #($mgmt_subnet_type == "Public Subnet")
-      eq:
-      - mgmt_subnet_type
-      - "Public Subnet"
-
-  instance_private_ip:
-    type: link
-    title: Private IP
+    title: "OpsCenter URL"
     visible: true
 
-primaryOutputButton: instance_https_url
+  lifecyclemanager_url:
+    type: link
+    title: "Life Cycle Manager URL"
+    visible: true
+
+  node_public_ips:
+    type: copyableString
+    title: "Node public IPs"
+    visible: true
+
+  node_public_ips:
+    type: copyableString
+    title: "Node private IPs"
+    visible: true
+
+primaryOutputButton: opscenter_url
