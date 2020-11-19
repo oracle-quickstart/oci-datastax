@@ -35,7 +35,7 @@ variable "node_count" {
 
 variable "dse_version" {
   description = "DSE version"
-  default     = "6.7.12"
+  default     = "6.8.6"
 }
 
 variable "password" {
