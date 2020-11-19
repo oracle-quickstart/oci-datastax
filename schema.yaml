@@ -128,5 +128,3 @@ outputs:
     type: copyableString
     title: "Node private IPs"
     visible: true
-
-primaryOutputButton: opscenter_url
