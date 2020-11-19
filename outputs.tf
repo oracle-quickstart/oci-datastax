@@ -1,9 +1,9 @@
 output "opscenter_url" {
-  value = "http://${data.oci_core_vnic.opscenter_vnic.public_ip_address}:8888"
+  value = "https://${data.oci_core_vnic.opscenter_vnic.public_ip_address}:8443"
 }
 
 output "lifecyclemanager_url" {
-  value = "http://${data.oci_core_vnic.opscenter_vnic.public_ip_address}:8888/opscenter/lcm.html"
+  value = "https://${data.oci_core_vnic.opscenter_vnic.public_ip_address}:8443/opscenter/lcm.html"
 }
 
 output "node_public_ips" {
